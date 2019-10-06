@@ -9,13 +9,13 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="20.616312mm"
+   width="20.811649mm"
    height="26.458332mm"
-   viewBox="0 0 20.616312 26.458332"
+   viewBox="0 0 20.811648 26.458332"
    version="1.1"
    id="svg8"
    inkscape:version="0.92.4 (5da689c313, 2019-01-14)"
-   sodipodi:docname="d-extrude-horizontal - Copy.svg">
+   sodipodi:docname="d-extrude-thick-horizontal.svg">
   <defs
      id="defs2" />
   <sodipodi:namedview
@@ -25,9 +25,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="2.8"
-     inkscape:cx="-173.42072"
-     inkscape:cy="-36.853305"
+     inkscape:zoom="1.4"
+     inkscape:cx="-143.38637"
+     inkscape:cy="5.3881323"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -53,12 +53,12 @@
      inkscape:label="Layer 1"
      inkscape:groupmode="layer"
      id="layer1"
-     transform="translate(0.28422039)">
+     transform="translate(37.192634,5.1028291)">
     <path
-       style="opacity:1;fill:#000000;fill-opacity:1;stroke-width:0;stroke-miterlimit:4;stroke-dasharray:none;paint-order:fill markers stroke"
-       d="M -1.0742188,0 V 40 H 14.726562 V 20 H 32.125 32.726562 v 0.03125 A 30,30 0 0 1 60.353516,40 H 76.78125 A 49.999997,49.999997 0 0 0 28.925781,0.05078125 V 0 h -1 z m 0,60 v 40 h 28.9999998 1 V 99.96484 A 49.999997,49.999997 0 0 0 76.845703,60 H 60.34375 A 30,30 0 0 1 32.726562,79.978516 V 80 H 32.125 14.726562 V 60 Z"
-       transform="scale(0.26458333)"
-       id="rect818"
+       style="opacity:1;vector-effect:none;fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke-width:1.16666138;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1"
+       d="M 0,0 V 40 H 17.371094 V 20 h 16.763672 0.564453 v 0.03125 A 28.20813,30.000243 0 0 1 58.5625,35 28.20813,30.000243 0 0 1 60.707031,40 H 78.654297 A 49.999778,49.999778 0 0 0 73.013672,25 49.999778,49.999778 0 0 0 30.714844,0.05078125 V 0 h -1 z m 0,60 v 40 h 29.714844 1 V 99.97656 A 49.999778,49.999778 0 0 0 73.013672,75 49.999778,49.999778 0 0 0 78.658203,60 H 60.693359 A 28.20813,30.000243 0 0 1 58.5625,65 28.20813,30.000243 0 0 1 34.699219,79.986328 V 80 H 34.134766 17.371094 V 60 Z"
+       transform="matrix(0.26458333,0,0,0.26458333,-37.192634,-5.1028291)"
+       id="path817-9"
        inkscape:connector-curvature="0" />
   </g>
 </svg>

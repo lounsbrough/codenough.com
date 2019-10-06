@@ -31,7 +31,7 @@ code {
 }
 
 .letter-e {
-  fill: #006680;
+  animation: blue-fade-animation 9s ease infinite;
 }
 
 .letter-o-2 {
@@ -70,25 +70,10 @@ code {
   0% {
     transform: rotate3d(0, 0, 0, 0deg);
   }
-  30% {
-    transform: rotate3d(0, 1, 0, 360deg);
+  50% {
+    transform: rotate3d(-1, 1, 0, 360deg);
   }
   100% {
-    transform: rotate3d(0, 1, 0, 360deg);
-  }
-}
-
-@keyframes rotate-upside-down-animation {
-  0% {
-    transform: rotate3d(0, 0, 0, 0deg);
-  }
-  80% {
-    transform: rotate3d(0, 0, 0, 00deg);
-  }
-  90% {
-    transform: rotate3d(1, 0, 0, 180deg);
-  }
-  100% {
-    transform: rotate3d(0, 0, 0, 0deg);
+    transform: rotate3d(-1, 1, 0, 360deg);
   }
 }
