@@ -13,17 +13,25 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <span className="logo">
+        <div className="logo">
           <LetterC className="letter letter-c"></LetterC>
+          <br></br>
           <LetterO className="letter letter-o-1"></LetterO>
+          <br></br>
           <LetterD className="letter letter-d"></LetterD>
+          <br></br>
           <LetterE className="letter letter-e"></LetterE>
+          <br></br>
           <LetterN className="letter letter-n"></LetterN>
+          <br></br>
           <LetterO className="letter letter-o-2"></LetterO>
+          <br></br>
           <LetterU className="letter letter-u"></LetterU>
+          <br></br>
           <LetterG className="letter letter-g"></LetterG>
+          <br></br>
           <LetterH className="letter letter-h"></LetterH>
-        </span>
+        </div>
       </header>
     </div>
   );

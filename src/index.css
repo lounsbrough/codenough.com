@@ -12,9 +12,25 @@ code {
     monospace;
 }
 
+.logo br {
+  display: none;
+}
+
 .letter {
   fill: white;
-  margin: auto 20px;
+  height: 5vw;
+  margin: auto 1.5vw;
+}
+
+@media screen and (max-width: 1200px) {
+  .logo br {
+    display: block;
+  }
+
+  .letter {
+    height: 50px;
+    margin: 10px 0;
+  }
 }
 
 .letter-c {
@@ -23,7 +39,7 @@ code {
 
 .letter-o-1 {
   fill: #006680;
-  animation: spring-spiral-animation 7s ease infinite;
+  animation: spring-spiral-animation 8s ease infinite;
 }
 
 .letter-d {
@@ -31,19 +47,25 @@ code {
 }
 
 .letter-e {
-  animation: blue-fade-animation 9s ease infinite;
+  animation: blue-fade-animation 8s ease infinite;
 }
 
 .letter-o-2 {
-  animation: rotate-back-and-forth-animation 5s ease infinite;
+  animation: spring-spiral-animation 8s ease infinite;
+  animation-delay: 4s;
 }
 
 @keyframes blue-fade-animation {
-  0%,
-  50% {
+  0% {
     fill: #006680;
   }
-  75% {
+  40% {
+    fill: #006680;
+  }
+  50% {
+    fill: #ffffff;
+  }
+  90% {
     fill: #ffffff;
   }
   100% {
@@ -55,25 +77,16 @@ code {
   0% {
     transform: rotateZ(0deg);
   }
-  10% {
+  5% {
     transform: rotateZ(0deg);
   }
-  85% {
+  30% {
     transform: rotateZ(720deg);
   }
-  100% {
+  40% {
     transform: rotateZ(0deg);
   }
-}
-
-@keyframes rotate-back-and-forth-animation {
-  0% {
-    transform: rotate3d(0, 0, 0, 0deg);
-  }
-  50% {
-    transform: rotate3d(-1, 1, 0, 360deg);
-  }
   100% {
-    transform: rotate3d(-1, 1, 0, 360deg);
+    transform: rotateZ(0deg);
   }
 }
