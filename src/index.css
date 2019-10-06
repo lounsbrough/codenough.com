@@ -1,0 +1,94 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.letter {
+  fill: white;
+  margin: auto 20px;
+}
+
+.letter-c {
+  fill: #006680;
+}
+
+.letter-o-1 {
+  fill: #006680;
+  animation: spring-spiral-animation 7s ease infinite;
+}
+
+.letter-d {
+  fill: #006680;
+}
+
+.letter-e {
+  fill: #006680;
+}
+
+.letter-o-2 {
+  animation: rotate-back-and-forth-animation 5s ease infinite;
+}
+
+@keyframes blue-fade-animation {
+  0%,
+  50% {
+    fill: #006680;
+  }
+  75% {
+    fill: #ffffff;
+  }
+  100% {
+    fill: #006680;
+  }
+}
+
+@keyframes spring-spiral-animation {
+  0% {
+    transform: rotateZ(0deg);
+  }
+  10% {
+    transform: rotateZ(0deg);
+  }
+  85% {
+    transform: rotateZ(720deg);
+  }
+  100% {
+    transform: rotateZ(0deg);
+  }
+}
+
+@keyframes rotate-back-and-forth-animation {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  30% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+  100% {
+    transform: rotate3d(0, 1, 0, 360deg);
+  }
+}
+
+@keyframes rotate-upside-down-animation {
+  0% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+  80% {
+    transform: rotate3d(0, 0, 0, 00deg);
+  }
+  90% {
+    transform: rotate3d(1, 0, 0, 180deg);
+  }
+  100% {
+    transform: rotate3d(0, 0, 0, 0deg);
+  }
+}
