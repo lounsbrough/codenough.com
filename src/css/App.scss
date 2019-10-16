@@ -1,0 +1,23 @@
+@import "logo.scss";
+
+.app {
+  text-align: center;
+}
+
+.app-header {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.colorful-background {
+  background-color: #1ccbd2;
+}
+
+.white-background {
+  background-color: #ffffff;
+}
