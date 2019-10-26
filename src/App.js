@@ -23,7 +23,7 @@ const orientationHandler = (e) => {
   }
 
   rotatableBody.style.transform = `
-    rotateZ(${e.alpha}deg)
+    rotateZ(${e.alpha - 90}deg)
     rotateX(${e.beta + 270}deg)
     rotateY(${-e.gamma}deg)`;
 };
