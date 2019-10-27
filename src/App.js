@@ -4,7 +4,7 @@ import Logo from './components/logo/Logo';
 import Letters from './components/logo/Letters';
 import './css/App.scss';
 
-function App() {
+const App = () => {
   return (
     <div className="app">
       <header className="app-header colorful-background">
@@ -13,6 +13,6 @@ function App() {
       </header>
     </div>
   );
-}
+};
 
 export default App;
