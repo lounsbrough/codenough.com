@@ -18,7 +18,7 @@ class App extends React.Component {
   componentDidMount() {
     this.randomColorShow();
 
-    document.addEventListener('dblclick', (event) => this.toggleColorShow(event));
+    document.addEventListener('click', (event) => this.toggleColorShow(event));
     document.addEventListener('touchstart', (event) => this.toggleColorShow(event));
   }
 
