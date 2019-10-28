@@ -19,7 +19,6 @@ class App extends React.Component {
     this.randomColorShow();
 
     document.addEventListener('click', (event) => this.toggleColorShow(event));
-    document.addEventListener('touchstart', (event) => this.toggleColorShow(event));
   }
 
   setDefaultColors() {
