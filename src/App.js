@@ -11,11 +11,18 @@ class App extends React.Component {
 
     this.state = {
       colorShowActive: false,
+      defaultFaviconHref: null,
       hue: Math.round(Math.random() * 359)
     };
   }
 
   componentDidMount() {
+    const favicon = this.getFaviconElement();
+
+    this.setState({
+      defaultFaviconHref: favicon.href
+    });
+
     this.randomColorShow();
 
     document.addEventListener('click', (event) => this.toggleColorShow(event));
@@ -31,6 +38,10 @@ class App extends React.Component {
     });
 
     document.querySelector('.app-header').style.backgroundColor = "#1ccbd2";
+
+    const favicon = this.getFaviconElement();
+
+    favicon.href = this.state.defaultFaviconHref;
   }
 
   randomColorShow() {
@@ -46,6 +57,8 @@ class App extends React.Component {
       });
     
       document.querySelector('.app-header').style.backgroundColor = "#000000";
+
+      this.paintLogoOntoFavicon();
     }
   
     setTimeout(() => this.randomColorShow(), 20);
@@ -69,6 +82,33 @@ class App extends React.Component {
           .variation('default')
           .web_safe(true)
           .colors();
+  }
+
+  paintLogoOntoFavicon() {
+    const canvas = document.createElement('canvas');
+    canvas.width = 32;
+    canvas.height = 32;
+    const context = canvas.getContext('2d');
+
+    const encodedSvg = window.btoa(new XMLSerializer().serializeToString(document.querySelector('.logo')));
+    const image = new Image();
+
+    image.onload = () => {
+      context.drawImage(image, 0, 0, image.width, image.height, 0, 0, 32, 32);
+
+      const favicon = this.getFaviconElement();
+
+      favicon.href = canvas.toDataURL("image/png");
+
+      canvas.remove();
+      image.remove();
+    };
+
+    image.src = `data:image/svg+xml;base64,${encodedSvg}`;
+  }
+
+  getFaviconElement() {
+    return document.querySelector('link[rel*="icon"]');
   }
 
   render() {
