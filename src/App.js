@@ -37,7 +37,7 @@ class App extends React.Component {
       svgPath.style.fill = "inherit"
     });
 
-    document.querySelector('.app-header').style.backgroundColor = "#1ccbd2";
+    document.querySelector('.app').style.backgroundColor = "#1ccbd2";
 
     const favicon = this.getFaviconElement();
 
@@ -56,7 +56,7 @@ class App extends React.Component {
         svgPath.style.fill = colorScheme[index % 12];
       });
     
-      document.querySelector('.app-header').style.backgroundColor = "#000000";
+      document.querySelector('.app').style.backgroundColor = "#000000";
 
       this.paintLogoOntoFavicon();
     }
