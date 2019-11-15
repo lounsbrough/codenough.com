@@ -1,297 +1,297 @@
 [
     {
-        "icon": "android.svg",
         "title": "Android",
+        "componentName": "AndroidSvg",
         "color": "#3DDC84"
     },
     {
-        "icon": "angular.svg",
         "title": "Angular",
+        "componentName": "AngularSvg",
         "color": "#DD0031"
     },
     {
-        "icon": "apple.svg",
         "title": "Apple",
+        "componentName": "AppleSvg",
         "color": "#999999"
     },
     {
-        "icon": "arduino.svg",
         "title": "Arduino",
+        "componentName": "ArduinoSvg",
         "color": "#00979D"
     },
     {
-        "icon": "atlassian.svg",
         "title": "Atlassian",
+        "componentName": "AtlassianSvg",
         "color": "#0052CC"
     },
     {
-        "icon": "auth0.svg",
         "title": "Auth0",
+        "componentName": "Auth0Svg",
         "color": "#EB5424"
     },
     {
-        "icon": "babel.svg",
         "title": "Babel",
+        "componentName": "BabelSvg",
         "color": "#F9DC3E"
     },
     {
-        "icon": "bitbucket.svg",
         "title": "Bitbucket",
+        "componentName": "BitbucketSvg",
         "color": "#0052CC"
     },
     {
-        "icon": "bootstrap.svg",
         "title": "Bootstrap",
+        "componentName": "BootstrapSvg",
         "color": "#563D7C"
     },
     {
-        "icon": "css3.svg",
         "title": "CSS",
+        "componentName": "CssSvg",
         "color": "#1572B6"
     },
     {
-        "icon": "digitalocean.svg",
         "title": "DigitalOcean",
+        "componentName": "DigitalOceanSvg",
         "color": "#0080FF"
     },
     {
-        "icon": "docker.svg",
         "title": "Docker",
+        "componentName": "DockerSvg",
         "color": "#1488C6"
     },
     {
-        "icon": "dot-net.svg",
         "title": ".NET",
+        "componentName": "DotnetSvg",
         "color": "#5C2D91"
     },
     {
-        "icon": "eslint.svg",
         "title": "ESLint",
+        "componentName": "EslintSvg",
         "color": "#4B32C3"
     },
     {
-        "icon": "gimp.svg",
         "title": "GIMP",
+        "componentName": "GimpSvg",
         "color": "#5C5543"
     },
     {
-        "icon": "git.svg",
         "title": "Git",
+        "componentName": "GitSvg",
         "color": "#F05032"
     },
     {
-        "icon": "github.svg",
         "title": "GitHub",
+        "componentName": "GithubSvg",
         "color": "#181717"
     },
     {
-        "icon": "googlecloud.svg",
         "title": "Google Cloud",
+        "componentName": "GoogleCloudSvg",
         "color": "#4285F4"
     },
     {
-        "icon": "helm.svg",
         "title": "Helm",
+        "componentName": "HelmSvg",
         "color": "#277A9F"
     },
     {
-        "icon": "html5.svg",
         "title": "HTML",
+        "componentName": "HtmlSvg",
         "color": "#E34F26"
     },
     {
-        "icon": "ibm.svg",
         "title": "IBM",
+        "componentName": "IbmSvg",
         "color": "#054ADA"
     },
     {
-        "icon": "inkscape.svg",
         "title": "Inkscape",
+        "componentName": "InkscapeSvg",
         "color": "#000000"
     },
     {
-        "icon": "ionic.svg",
         "title": "Ionic",
+        "componentName": "IonicSvg",
         "color": "#3880FF"
     },
     {
-        "icon": "javascript.svg",
         "title": "JavaScript",
+        "componentName": "JavascriptSvg",
         "color": "#F7DF1E"
     },
     {
-        "icon": "jest.svg",
         "title": "Jest",
+        "componentName": "JestSvg",
         "color": "#C21325"
     },
     {
-        "icon": "jira.svg",
         "title": "Jira",
+        "componentName": "JiraSvg",
         "color": "#172B4D"
     },
     {
-        "icon": "jquery.svg",
         "title": "jQuery",
+        "componentName": "JquerySvg",
         "color": "#0769AD"
     },
     {
-        "icon": "json.svg",
         "title": "JSON",
+        "componentName": "JsonSvg",
         "color": "#000000"
     },
     {
-        "icon": "kubernetes.svg",
         "title": "Kubernetes",
+        "componentName": "KubernetesSvg",
         "color": "#326CE5"
     },
     {
-        "icon": "letsencrypt.svg",
         "title": "Let's Encrypt",
+        "componentName": "LetsencryptSvg",
         "color": "#003A70"
     },
     {
-        "icon": "linux.svg",
         "title": "Linux",
+        "componentName": "LinuxSvg",
         "color": "#FCC624"
     },
     {
-        "icon": "markdown.svg",
         "title": "Markdown",
+        "componentName": "MarkdownSvg",
         "color": "#000000"
     },
     {
-        "icon": "mathworks.svg",
         "title": "Mathworks",
+        "componentName": "MathworksSvg",
         "color": "#0076A8"
     },
     {
-        "icon": "microsoft.svg",
         "title": "Microsoft",
+        "componentName": "MicrosoftSvg",
         "color": "#666666"
     },
     {
-        "icon": "mysql.svg",
         "title": "MySQL",
+        "componentName": "MysqlSvg",
         "color": "#4479A1"
     },
     {
-        "icon": "netlify.svg",
         "title": "Netlify",
-        "color": "#00C7B7"
+        "componentName": "NetlifySvg",
+        "color": "#00AD9F"
     },
     {
-        "icon": "next-dot-js.svg",
         "title": "Next.js",
+        "componentName": "NextjsSvg",
         "color": "#000000"
     },
     {
-        "icon": "nginx.svg",
         "title": "NGINX",
+        "componentName": "NginxSvg",
         "color": "#269539"
     },
     {
-        "icon": "node-dot-js.svg",
         "title": "Node.js",
+        "componentName": "NodejsSvg",
         "color": "#339933"
     },
     {
-        "icon": "npm.svg",
         "title": "NPM",
+        "componentName": "NpmSvg",
         "color": "#CB3837"
     },
     {
-        "icon": "nuget.svg",
         "title": "NuGet",
+        "componentName": "NugetSvg",
         "color": "#004880"
     },
     {
-        "icon": "octopusdeploy.svg",
         "title": "Octopus Deploy",
+        "componentName": "OctopusDeploySvg",
         "color": "#2F93E0"
     },
     {
-        "icon": "oracle.svg",
         "title": "Oracle",
+        "componentName": "OracleSvg",
         "color": "#F80000"
     },
     {
-        "icon": "php.svg",
         "title": "PHP",
+        "componentName": "PhpSvg",
         "color": "#777BB4"
     },
     {
-        "icon": "postgresql.svg",
         "title": "PostgreSQL",
+        "componentName": "PostresqlSvg",
         "color": "#336791"
     },
     {
-        "icon": "postman.svg",
         "title": "Postman",
+        "componentName": "PostmanSvg",
         "color": "#FF6C37"
     },
     {
-        "icon": "raspberrypi.svg",
         "title": "Raspberry Pi",
+        "componentName": "RaspberryPiSvg",
         "color": "#C51A4A"
     },
     {
-        "icon": "react.svg",
         "title": "React",
+        "componentName": "ReactSvg",
         "color": "#61DAFB"
     },
     {
-        "icon": "redis.svg",
         "title": "Redis",
+        "componentName": "RedisSvg",
         "color": "#D82C20"
     },
     {
-        "icon": "redux.svg",
         "title": "Redux",
+        "componentName": "ReduxSvg",
         "color": "#764ABC"
     },
     {
-        "icon": "sass.svg",
         "title": "Sass",
+        "componentName": "SassSvg",
         "color": "#CC6699"
     },
     {
-        "icon": "swagger.svg",
         "title": "Swagger",
+        "componentName": "SwaggerSvg",
         "color": "#85EA2D"
     },
     {
-        "icon": "terraform.svg",
         "title": "Terraform",
+        "componentName": "TerraformSvg",
         "color": "#623CE4"
     },
     {
-        "icon": "twilio.svg",
         "title": "Twilio",
+        "componentName": "TwilioSvg",
         "color": "#F22F46"
     },
     {
-        "icon": "typescript.svg",
         "title": "TypeScript",
+        "componentName": "TypescriptSvg",
         "color": "#007ACC"
     },
     {
-        "icon": "ubuntu.svg",
         "title": "Ubuntu",
+        "componentName": "UbuntuSvg",
         "color": "#E95420"
     },
     {
-        "icon": "webpack.svg",
         "title": "Webpack",
+        "componentName": "WebpackSvg",
         "color": "#8DD6F9"
     },
     {
-        "icon": "windows.svg",
         "title": "Windows",
+        "componentName": "WindowsSvg",
         "color": "#0078D6"
     },
     {
-        "icon": "yarn.svg",
         "title": "Yarn",
+        "componentName": "YarnSvg",
         "color": "#2C8EBB"
     }
 ]

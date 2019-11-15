@@ -3,6 +3,7 @@ import ColorScheme from 'color-scheme';
 
 import Logo from './components/logo/Logo';
 import Letters from './components/logo/Letters';
+import Proficiencies from './components/Proficiencies';
 import './css/App.scss';
 
 class App extends React.Component {
@@ -29,6 +30,10 @@ class App extends React.Component {
   }
 
   setDefaultColors() {
+    document.querySelectorAll('svg path').forEach(svgPath => {
+      svgPath.style.fill = "inherit"
+    });
+
     document.querySelectorAll('.logo path').forEach((path, index) => {
       path.style.fill = index === 0 ? "#006680" : "#ffffff";
     });
@@ -118,6 +123,7 @@ class App extends React.Component {
           <Logo className="logo" format="fillWhite" height="500" width="80%" />
           <Letters />
         </header>
+        <Proficiencies />
       </div>
     );
   }

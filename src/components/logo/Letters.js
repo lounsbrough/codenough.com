@@ -9,7 +9,7 @@ import LetterU from './letters/LetterU';
 import LetterG from './letters/LetterG';
 import LetterH from './letters/LetterH';
 
-function Letters() {
+const Letters = () => {
   return (
     <div className="logo-letters">
         <LetterC className="letter letter-c"></LetterC>
@@ -31,6 +31,6 @@ function Letters() {
         <LetterH className="letter letter-h"></LetterH>
     </div>
   );
-}
+};
 
 export default Letters;

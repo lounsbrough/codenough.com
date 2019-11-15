@@ -1,0 +1,19 @@
+h1 {
+    color: white;
+    font-size: 50px;
+}
+
+.proficiency-icon {
+    height: 100px;
+
+    &:not(:hover) {
+        // fill: #ffffff;
+        transition: fill 1.0s !important;
+    }
+
+    &:hover {
+        transform: scale(1.25);
+    }
+
+    transition: transform 1.0s !important;
+}
