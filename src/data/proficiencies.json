@@ -1,0 +1,297 @@
+[
+    {
+        "icon": "android.svg",
+        "title": "Android",
+        "color": "#3DDC84"
+    },
+    {
+        "icon": "angular.svg",
+        "title": "Angular",
+        "color": "#DD0031"
+    },
+    {
+        "icon": "apple.svg",
+        "title": "Apple",
+        "color": "#999999"
+    },
+    {
+        "icon": "arduino.svg",
+        "title": "Arduino",
+        "color": "#00979D"
+    },
+    {
+        "icon": "atlassian.svg",
+        "title": "Atlassian",
+        "color": "#0052CC"
+    },
+    {
+        "icon": "auth0.svg",
+        "title": "Auth0",
+        "color": "#EB5424"
+    },
+    {
+        "icon": "babel.svg",
+        "title": "Babel",
+        "color": "#F9DC3E"
+    },
+    {
+        "icon": "bitbucket.svg",
+        "title": "Bitbucket",
+        "color": "#0052CC"
+    },
+    {
+        "icon": "bootstrap.svg",
+        "title": "Bootstrap",
+        "color": "#563D7C"
+    },
+    {
+        "icon": "css3.svg",
+        "title": "CSS",
+        "color": "#1572B6"
+    },
+    {
+        "icon": "digitalocean.svg",
+        "title": "DigitalOcean",
+        "color": "#0080FF"
+    },
+    {
+        "icon": "docker.svg",
+        "title": "Docker",
+        "color": "#1488C6"
+    },
+    {
+        "icon": "dot-net.svg",
+        "title": ".NET",
+        "color": "#5C2D91"
+    },
+    {
+        "icon": "eslint.svg",
+        "title": "ESLint",
+        "color": "#4B32C3"
+    },
+    {
+        "icon": "gimp.svg",
+        "title": "GIMP",
+        "color": "#5C5543"
+    },
+    {
+        "icon": "git.svg",
+        "title": "Git",
+        "color": "#F05032"
+    },
+    {
+        "icon": "github.svg",
+        "title": "GitHub",
+        "color": "#181717"
+    },
+    {
+        "icon": "googlecloud.svg",
+        "title": "Google Cloud",
+        "color": "#4285F4"
+    },
+    {
+        "icon": "helm.svg",
+        "title": "Helm",
+        "color": "#277A9F"
+    },
+    {
+        "icon": "html5.svg",
+        "title": "HTML",
+        "color": "#E34F26"
+    },
+    {
+        "icon": "ibm.svg",
+        "title": "IBM",
+        "color": "#054ADA"
+    },
+    {
+        "icon": "inkscape.svg",
+        "title": "Inkscape",
+        "color": "#000000"
+    },
+    {
+        "icon": "ionic.svg",
+        "title": "Ionic",
+        "color": "#3880FF"
+    },
+    {
+        "icon": "javascript.svg",
+        "title": "JavaScript",
+        "color": "#F7DF1E"
+    },
+    {
+        "icon": "jest.svg",
+        "title": "Jest",
+        "color": "#C21325"
+    },
+    {
+        "icon": "jira.svg",
+        "title": "Jira",
+        "color": "#172B4D"
+    },
+    {
+        "icon": "jquery.svg",
+        "title": "jQuery",
+        "color": "#0769AD"
+    },
+    {
+        "icon": "json.svg",
+        "title": "JSON",
+        "color": "#000000"
+    },
+    {
+        "icon": "kubernetes.svg",
+        "title": "Kubernetes",
+        "color": "#326CE5"
+    },
+    {
+        "icon": "letsencrypt.svg",
+        "title": "Let's Encrypt",
+        "color": "#003A70"
+    },
+    {
+        "icon": "linux.svg",
+        "title": "Linux",
+        "color": "#FCC624"
+    },
+    {
+        "icon": "markdown.svg",
+        "title": "Markdown",
+        "color": "#000000"
+    },
+    {
+        "icon": "mathworks.svg",
+        "title": "Mathworks",
+        "color": "#0076A8"
+    },
+    {
+        "icon": "microsoft.svg",
+        "title": "Microsoft",
+        "color": "#666666"
+    },
+    {
+        "icon": "mysql.svg",
+        "title": "MySQL",
+        "color": "#4479A1"
+    },
+    {
+        "icon": "netlify.svg",
+        "title": "Netlify",
+        "color": "#00C7B7"
+    },
+    {
+        "icon": "next-dot-js.svg",
+        "title": "Next.js",
+        "color": "#000000"
+    },
+    {
+        "icon": "nginx.svg",
+        "title": "NGINX",
+        "color": "#269539"
+    },
+    {
+        "icon": "node-dot-js.svg",
+        "title": "Node.js",
+        "color": "#339933"
+    },
+    {
+        "icon": "npm.svg",
+        "title": "NPM",
+        "color": "#CB3837"
+    },
+    {
+        "icon": "nuget.svg",
+        "title": "NuGet",
+        "color": "#004880"
+    },
+    {
+        "icon": "octopusdeploy.svg",
+        "title": "Octopus Deploy",
+        "color": "#2F93E0"
+    },
+    {
+        "icon": "oracle.svg",
+        "title": "Oracle",
+        "color": "#F80000"
+    },
+    {
+        "icon": "php.svg",
+        "title": "PHP",
+        "color": "#777BB4"
+    },
+    {
+        "icon": "postgresql.svg",
+        "title": "PostgreSQL",
+        "color": "#336791"
+    },
+    {
+        "icon": "postman.svg",
+        "title": "Postman",
+        "color": "#FF6C37"
+    },
+    {
+        "icon": "raspberrypi.svg",
+        "title": "Raspberry Pi",
+        "color": "#C51A4A"
+    },
+    {
+        "icon": "react.svg",
+        "title": "React",
+        "color": "#61DAFB"
+    },
+    {
+        "icon": "redis.svg",
+        "title": "Redis",
+        "color": "#D82C20"
+    },
+    {
+        "icon": "redux.svg",
+        "title": "Redux",
+        "color": "#764ABC"
+    },
+    {
+        "icon": "sass.svg",
+        "title": "Sass",
+        "color": "#CC6699"
+    },
+    {
+        "icon": "swagger.svg",
+        "title": "Swagger",
+        "color": "#85EA2D"
+    },
+    {
+        "icon": "terraform.svg",
+        "title": "Terraform",
+        "color": "#623CE4"
+    },
+    {
+        "icon": "twilio.svg",
+        "title": "Twilio",
+        "color": "#F22F46"
+    },
+    {
+        "icon": "typescript.svg",
+        "title": "TypeScript",
+        "color": "#007ACC"
+    },
+    {
+        "icon": "ubuntu.svg",
+        "title": "Ubuntu",
+        "color": "#E95420"
+    },
+    {
+        "icon": "webpack.svg",
+        "title": "Webpack",
+        "color": "#8DD6F9"
+    },
+    {
+        "icon": "windows.svg",
+        "title": "Windows",
+        "color": "#0078D6"
+    },
+    {
+        "icon": "yarn.svg",
+        "title": "Yarn",
+        "color": "#2C8EBB"
+    }
+]
