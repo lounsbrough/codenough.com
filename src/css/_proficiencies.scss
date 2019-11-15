@@ -7,7 +7,7 @@ h1 {
     height: 100px;
 
     &:not(:hover) {
-        // fill: #ffffff;
+        fill: #ffffff;
         transition: fill 1.0s !important;
     }
 
