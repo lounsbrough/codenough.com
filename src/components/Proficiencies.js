@@ -8,7 +8,7 @@ const Proficiencies = () => {
         <h1>Things I have experience with</h1>
         <br />
         {proficiencies.map(proficiency => {
-            const SvgComponent = require(`../proficiency-icons/${proficiency.componentName}`).default;
+            const SvgComponent = require(`./proficiency-icons/${proficiency.componentName}`).default;
 
             return (
                 <span key={`span1-${proficiency.title}`} style={{padding: '20px', lineHeight: '100px'}}>
