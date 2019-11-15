@@ -165,11 +165,6 @@
         "color": "#0076A8"
     },
     {
-        "title": "Microsoft",
-        "componentName": "MicrosoftSvg",
-        "color": "#666666"
-    },
-    {
         "title": "MySQL",
         "componentName": "MysqlSvg",
         "color": "#4479A1"
