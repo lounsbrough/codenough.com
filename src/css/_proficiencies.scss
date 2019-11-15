@@ -17,3 +17,13 @@ h1 {
 
     transition: transform 1.0s !important;
 }
+
+@media screen and (max-width: 767px) {
+    h1 {
+        font-size: 25px;
+    }
+
+    .proficiency-icon {
+        height: 50px;
+    }
+}
