@@ -1,7 +1,7 @@
 import React from 'react';
 
 import proficiencies from '../data/proficiencies';
-import {hexToHSL} from '../utils/color-functions';
+import {hexToHSL, HSLToHex} from '../utils/color-functions';
 
 const randomizeOrder = (array) => {
     return array.map((element) => ({
@@ -20,7 +20,9 @@ const Proficiencies = () => {
                 {randomProficiencies.map(proficiency => {
                     const SvgComponent = require(`./proficiency-icons/${proficiency.componentName}`).default;
 
-                    const hoverBackgroundClass = hexToHSL(proficiency.color)[2] > 50 ? 'dark-background' : 'light-background';
+                    const hsl = hexToHSL(proficiency.color);
+                    hsl[2] = hsl[2] > 50 ? 10 : 90;
+                    const backgroundColor = HSLToHex(hsl);
 
                     return (
                         <span
@@ -29,8 +31,9 @@ const Proficiencies = () => {
                         >
                             <SvgComponent
                                 key={`icon-${proficiency.componentName}`}
-                                className={`proficiency-icon ${hoverBackgroundClass}`}
+                                className="proficiency-icon"
                                 fill={proficiency.color}
+                                style={{background: backgroundColor}}
                             />
                         </span>
                     );

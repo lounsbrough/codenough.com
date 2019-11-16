@@ -29,18 +29,11 @@ h1 {
     &:not(:hover) {
         fill: #ffffff;
         transition: fill 1.0s !important;
+        background: none !important;
     }
 
     &:hover {
         transform: scale(1.25);
-
-        &.dark-background {
-            background: #00141A;
-        }
-        
-        &.light-background {
-            background: #e5faff;
-        }
     }
 
     transition: transform 1.0s, background 2.0s;
