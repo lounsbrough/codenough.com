@@ -31,15 +31,15 @@ class App extends React.Component {
   }
 
   setDefaultColors() {
-    document.querySelectorAll('svg path').forEach(svgPath => {
+    document.querySelectorAll('.app-header svg path').forEach(svgPath => {
       svgPath.style.fill = "inherit"
     });
 
-    document.querySelectorAll('.logo path').forEach((path, index) => {
+    document.querySelectorAll('.app-header .logo path').forEach((path, index) => {
       path.style.fill = index === 0 ? "#006680" : "#ffffff";
     });
 
-    document.querySelectorAll('.letter path').forEach(svgPath => {
+    document.querySelectorAll('.app-header .letter path').forEach(svgPath => {
       svgPath.style.fill = "inherit"
     });
 
@@ -56,13 +56,13 @@ class App extends React.Component {
     } else {
       const colorScheme = this.getRandomColorScheme();
       
-      const svgPaths = document.querySelectorAll('svg path');
+      const svgPaths = document.querySelectorAll('.app-header svg path');
 
       svgPaths.forEach((svgPath, index) => {
         svgPath.style.fill = colorScheme[index % 12];
       });
     
-      document.querySelector('.app').style.backgroundColor = "#000000";
+      document.querySelector('.app').style.backgroundColor = "#00141A";
 
       this.paintLogoOntoFavicon();
     }
