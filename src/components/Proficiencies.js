@@ -15,22 +15,26 @@ const Proficiencies = () => {
 
 
     return (
-        <div>
-            <h1>Things I have experience with</h1>
-            <br />
-            {randomProficiencies.map(proficiency => {
-                const SvgComponent = require(`./proficiency-icons/${proficiency.componentName}`).default;
+        <div id="proficiencies-wrapper">
+            <h1>{'THINGS I HAVE EXPERIENCE WITH'}</h1>
+            <div id="proficiency-icons-wrapper">
+                {randomProficiencies.map(proficiency => {
+                    const SvgComponent = require(`./proficiency-icons/${proficiency.componentName}`).default;
 
-                return (
-                    <span key={`span1-${proficiency.title}`} style={{padding: '20px', lineHeight: '100px'}}>
-                        <SvgComponent
-                            key={proficiency.title}
-                            className="proficiency-icon"
-                            fill={proficiency.color}
-                        />
-                    </span>
-                );
-            })}
+                    return (
+                        <span
+                            className='icon-span'
+                            key={`icon-span-${proficiency.componentName}`}
+                        >
+                            <SvgComponent
+                                key={proficiency.title}
+                                className="proficiency-icon"
+                                fill={proficiency.color}
+                            />
+                        </span>
+                    );
+                })}
+            </div>
         </div>
     );
 };

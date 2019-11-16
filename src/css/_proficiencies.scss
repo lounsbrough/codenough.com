@@ -3,8 +3,26 @@ h1 {
     font-size: 50px;
 }
 
+#proficiencies-wrapper {
+    background: #006680;
+
+    h1 {
+        padding: 50px 0 50px 0;
+    }
+}
+
+#proficiency-icons-wrapper {
+    margin-left: 20px;
+    margin-right: 20px;
+}
+
+.icon-span {
+    padding: 20px;
+    line-height: 100px;
+}
+
 .proficiency-icon {
-    height: 100px;
+    height: 75px;
 
     &:not(:hover) {
         fill: #ffffff;

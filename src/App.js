@@ -1,4 +1,5 @@
 import React from 'react';
+import {Helmet} from 'react-helmet';
 import ColorScheme from 'color-scheme';
 
 import Logo from './components/logo/Logo';
@@ -118,13 +119,18 @@ class App extends React.Component {
 
   render() {
     return (
-      <div className="app">
-        <header className="app-header">
-          <Logo className="logo" format="fillWhite" height="500" width="80%" />
-          <Letters />
-        </header>
-        <Proficiencies />
-      </div>
+      <>
+        <Helmet>
+          <link href="https://fonts.googleapis.com/css?family=Roboto|Short+Stack|Montserrat&display=swap" rel="stylesheet"></link>
+        </Helmet>
+        <div className="app">
+          <header className="app-header">
+            <Logo className="logo" format="fillWhite" height="500" width="80%" />
+            <Letters />
+          </header>
+          <Proficiencies />
+        </div>
+      </>
     );
   }
 }
