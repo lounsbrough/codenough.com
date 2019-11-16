@@ -27,7 +27,7 @@ const Proficiencies = () => {
                             key={`icon-span-${proficiency.componentName}`}
                         >
                             <SvgComponent
-                                key={proficiency.title}
+                                key={`icon-${proficiency.componentName}`}
                                 className="proficiency-icon"
                                 fill={proficiency.color}
                             />
