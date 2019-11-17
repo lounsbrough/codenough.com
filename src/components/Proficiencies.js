@@ -28,6 +28,7 @@ const Proficiencies = () => {
                         <span
                             className='icon-span'
                             key={`icon-span-${proficiency.componentName}`}
+                            data-tooltip={proficiency.title}
                         >
                             <SvgComponent
                                 key={`icon-${proficiency.componentName}`}
