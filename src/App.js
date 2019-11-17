@@ -121,7 +121,7 @@ class App extends React.Component {
     return (
       <>
         <Helmet>
-          <link href="https://fonts.googleapis.com/css?family=Roboto|Short+Stack|Montserrat&display=swap" rel="stylesheet"></link>
+          <link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat&display=swap" rel="stylesheet"></link>
         </Helmet>
         <div className="app">
           <header className="app-header">
