@@ -16,22 +16,3 @@
   font-size: calc(10px + 2vmin);
   color: white;
 }
-
-::-webkit-scrollbar {
-  width: 15px;
-}
-
-::-webkit-scrollbar-track {
-  background: #00141A;
-}
-
-::-webkit-scrollbar-thumb {
-  background-image: url('/logo512.png');
-  opacity: 0.4;
-  background-size: contain;
-  height: 15px !important;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-image: url('/logo512.png');
-}
