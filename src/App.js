@@ -27,7 +27,8 @@ class App extends React.Component {
 
     this.randomColorShow();
 
-    document.addEventListener('click', (event) => this.toggleColorShow(event));
+    const appHeader = document.querySelector('.app-header');
+    appHeader.addEventListener('click', (event) => this.toggleColorShow(event));
   }
 
   setDefaultColors() {
