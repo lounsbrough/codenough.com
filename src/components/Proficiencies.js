@@ -33,7 +33,7 @@ const Proficiencies = () => {
                                 key={`icon-${proficiency.componentName}`}
                                 className="proficiency-icon"
                                 fill={proficiency.color}
-                                style={{background: backgroundColor}}
+                                style={{background: `radial-gradient(closest-side, ${backgroundColor}, ${backgroundColor}, ${backgroundColor}, ${backgroundColor}, ${backgroundColor}, ${backgroundColor}, rgba(0, 0, 0, 0))`}}
                             />
                         </span>
                     );
