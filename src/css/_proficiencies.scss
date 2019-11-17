@@ -52,9 +52,8 @@ h1 {
         height: 50px;
     }
 
-    .icon-span {    
-        &:after {
-            left: -100px;
-        }
+    #proficiency-icons-wrapper {
+        margin-left: 0;
+        margin-right: 0;
     }
 }
