@@ -32,13 +32,14 @@ h1 {
         fill: #ffffff;
         transition: fill 1.0s !important;
         background: none !important;
+        box-shadow: none !important;
     }
 
     &:hover {
-        transform: scale(1.25);
+        transform: scale(1.1);
     }
 
-    transition: transform 1.0s, background 2.0s;
+    transition: transform 1.0s, background 2.0s, box-shadow 2.0s;
 }
 
 @media screen and (max-width: 767px) {
