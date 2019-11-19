@@ -45,6 +45,11 @@
         "color": "#563D7C"
     },
     {
+        "title": "CSharp",
+        "componentName": "CsharpSvg",
+        "color": "#239120"
+    },
+    {
         "title": "CSS",
         "componentName": "CssSvg",
         "color": "#1572B6"
