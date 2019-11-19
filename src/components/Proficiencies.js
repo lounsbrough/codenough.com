@@ -28,11 +28,13 @@ const Proficiencies = () => {
                         <span
                             className='icon-span'
                             key={`icon-span-${proficiency.componentName}`}
+                            onClick={() => null}
                         >
                             <SvgComponent
                                 key={`icon-${proficiency.componentName}`}
                                 className="proficiency-icon"
                                 fill={proficiency.color}
+                                onClick={() => null}
                                 style={{background: backgroundColor, boxShadow: `${proficiency.color} 0 0 5px 5px`}}
                             />
                         </span>
