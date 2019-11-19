@@ -28,7 +28,6 @@ const Proficiencies = () => {
                         <span
                             className='icon-span'
                             key={`icon-span-${proficiency.componentName}`}
-                            onClick={() => null}
                         >
                             <SvgComponent
                                 key={`icon-${proficiency.componentName}`}
