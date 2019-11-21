@@ -1,5 +1,10 @@
 [
     {
+        "title": "Aerospace",
+        "componentName": "AerospaceSvg",
+        "color": "#CC0000"
+    },
+    {
         "title": "Android",
         "componentName": "AndroidSvg",
         "color": "#3DDC84"
