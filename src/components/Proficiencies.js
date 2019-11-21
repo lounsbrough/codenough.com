@@ -12,6 +12,22 @@ const randomizeOrder = (array) => {
 
 const randomProficiencies = randomizeOrder(proficiencies);
 
+const isMobile = () => {
+    if (
+        window.navigator.userAgent.match(/Android/i) ||
+        window.navigator.userAgent.match(/webOS/i) ||
+        window.navigator.userAgent.match(/iPhone/i) ||
+        window.navigator.userAgent.match(/iPad/i) ||
+        window.navigator.userAgent.match(/iPod/i) ||
+        window.navigator.userAgent.match(/BlackBerry/i) ||
+        window.navigator.userAgent.match(/Windows Phone/i)
+    ) { 
+        return true; 
+    }
+
+    return false;
+};
+
 const Proficiencies = () => {
     return (
         <div id="proficiencies-wrapper">
@@ -34,9 +50,18 @@ const Proficiencies = () => {
                                 className="proficiency-icon"
                                 fill={proficiency.color}
                                 onClick={() => {
-                                    if (proficiency.url) {
-                                        window.open(proficiency.url, "_blank")
+                                    if (isMobile() || !proficiency.url) {
+                                        return;
                                     }
+
+                                    window.open(proficiency.url, "_blank");
+                                }}
+                                onDoubleClick={() => {
+                                    if (!isMobile() || !proficiency.url) {
+                                        return;
+                                    }
+                                    
+                                    window.open(proficiency.url, "_blank");
                                 }}
                                 style={{background: backgroundColor, boxShadow: `${proficiency.color} 0 0 5px 5px`, cursor: proficiency.url ? 'pointer' : 'default'}}
                             />
