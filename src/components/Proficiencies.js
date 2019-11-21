@@ -34,14 +34,20 @@ const Proficiencies = () => {
                                 key={`icon-${proficiency.componentName}`}
                                 className="proficiency-icon"
                                 fill={proficiency.color}
-                                onClick={() => {
+                                onClick={(event) => {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+
                                     if (isMobile() || !proficiency.url) {
                                         return;
                                     }
 
                                     window.open(proficiency.url, "_blank");
                                 }}
-                                onDoubleClick={() => {
+                                onDoubleClick={(event) => {
+                                    event.preventDefault();
+                                    event.stopPropagation();
+
                                     if (!isMobile() || !proficiency.url) {
                                         return;
                                     }
