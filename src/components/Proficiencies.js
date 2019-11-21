@@ -33,8 +33,12 @@ const Proficiencies = () => {
                                 key={`icon-${proficiency.componentName}`}
                                 className="proficiency-icon"
                                 fill={proficiency.color}
-                                onClick={() => null}
-                                style={{background: backgroundColor, boxShadow: `${proficiency.color} 0 0 5px 5px`}}
+                                onClick={() => {
+                                    if (proficiency.url) {
+                                        window.open(proficiency.url, "_blank")
+                                    }
+                                }}
+                                style={{background: backgroundColor, boxShadow: `${proficiency.color} 0 0 5px 5px`, cursor: proficiency.url ? 'pointer' : 'default'}}
                             />
                         </span>
                     );

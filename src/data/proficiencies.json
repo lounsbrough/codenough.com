@@ -2,301 +2,361 @@
     {
         "title": "Aerospace",
         "componentName": "AerospaceSvg",
-        "color": "#CC0000"
+        "color": "#CC0000",
+        "url": "https://www.aere.iastate.edu/"
     },
     {
         "title": "Android",
         "componentName": "AndroidSvg",
-        "color": "#3DDC84"
+        "color": "#3DDC84",
+        "url": "https://www.android.com/"
     },
     {
         "title": "Angular",
         "componentName": "AngularSvg",
-        "color": "#DD0031"
+        "color": "#DD0031",
+        "url": "https://angular.io/"
     },
     {
         "title": "Apple",
         "componentName": "AppleSvg",
-        "color": "#999999"
+        "color": "#999999",
+        "url": "https://developer.apple.com/"
     },
     {
         "title": "Arduino",
         "componentName": "ArduinoSvg",
-        "color": "#00979D"
+        "color": "#00979D",
+        "url": "https://www.arduino.cc/"
     },
     {
         "title": "Atlassian",
         "componentName": "AtlassianSvg",
-        "color": "#0052CC"
+        "color": "#0052CC",
+        "url": "https://www.atlassian.com/"
     },
     {
         "title": "Auth0",
         "componentName": "Auth0Svg",
-        "color": "#EB5424"
+        "color": "#EB5424",
+        "url": "https://auth0.com/"
     },
     {
         "title": "Babel",
         "componentName": "BabelSvg",
-        "color": "#F9DC3E"
+        "color": "#F9DC3E",
+        "url": "https://babeljs.io/"
     },
     {
         "title": "Bitbucket",
         "componentName": "BitbucketSvg",
-        "color": "#0052CC"
+        "color": "#0052CC",
+        "url": "https://bitbucket.org/"
     },
     {
         "title": "Bootstrap",
         "componentName": "BootstrapSvg",
-        "color": "#563D7C"
+        "color": "#563D7C",
+        "url": "https://getbootstrap.com/"
     },
     {
         "title": "CSharp",
         "componentName": "CsharpSvg",
-        "color": "#239120"
+        "color": "#239120",
+        "url": "https://docs.microsoft.com/en-us/dotnet/csharp/"
     },
     {
         "title": "CSS",
         "componentName": "CssSvg",
-        "color": "#1572B6"
+        "color": "#1572B6",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/CSS"
     },
     {
         "title": "DigitalOcean",
         "componentName": "DigitalOceanSvg",
-        "color": "#0080FF"
+        "color": "#0080FF",
+        "url": "https://www.digitalocean.com/"
     },
     {
         "title": "Docker",
         "componentName": "DockerSvg",
-        "color": "#1488C6"
+        "color": "#1488C6",
+        "url": "https://www.docker.com/"
     },
     {
         "title": ".NET",
         "componentName": "DotnetSvg",
-        "color": "#5C2D91"
+        "color": "#5C2D91",
+        "url": "https://dotnet.microsoft.com/"
     },
     {
         "title": "ESLint",
         "componentName": "EslintSvg",
-        "color": "#4B32C3"
+        "color": "#4B32C3",
+        "url": "https://eslint.org/"
     },
     {
         "title": "GIMP",
         "componentName": "GimpSvg",
-        "color": "#5C5543"
+        "color": "#5C5543",
+        "url": "https://www.gimp.org/"
     },
     {
         "title": "Git",
         "componentName": "GitSvg",
-        "color": "#F05032"
+        "color": "#F05032",
+        "url": "https://git-scm.com/"
     },
     {
         "title": "GitHub",
         "componentName": "GithubSvg",
-        "color": "#181717"
+        "color": "#181717",
+        "url": "https://github.com/"
     },
     {
         "title": "Google Cloud",
         "componentName": "GoogleCloudSvg",
-        "color": "#4285F4"
+        "color": "#4285F4",
+        "url": "https://cloud.google.com/"
     },
     {
         "title": "Helm",
         "componentName": "HelmSvg",
-        "color": "#277A9F"
+        "color": "#277A9F",
+        "url": "https://helm.sh/"
     },
     {
         "title": "HTML",
         "componentName": "HtmlSvg",
-        "color": "#E34F26"
+        "color": "#E34F26",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/HTML"
     },
     {
         "title": "IBM",
         "componentName": "IbmSvg",
-        "color": "#054ADA"
+        "color": "#054ADA",
+        "url": "https://www.ibm.com/"
     },
     {
         "title": "Inkscape",
         "componentName": "InkscapeSvg",
-        "color": "#000000"
+        "color": "#000000",
+        "url": "https://inkscape.org/"
     },
     {
         "title": "Ionic",
         "componentName": "IonicSvg",
-        "color": "#3880FF"
+        "color": "#3880FF",
+        "url": "https://ionicframework.com/"
     },
     {
         "title": "JavaScript",
         "componentName": "JavascriptSvg",
-        "color": "#F7DF1E"
+        "color": "#F7DF1E",
+        "url": "https://developer.mozilla.org/en-US/docs/Web/JavaScript"
     },
     {
         "title": "Jest",
         "componentName": "JestSvg",
-        "color": "#C21325"
+        "color": "#C21325",
+        "url": "https://jestjs.io/"
     },
     {
         "title": "Jira",
         "componentName": "JiraSvg",
-        "color": "#172B4D"
+        "color": "#172B4D",
+        "url": "https://www.atlassian.com/software/jira"
     },
     {
         "title": "jQuery",
         "componentName": "JquerySvg",
-        "color": "#0769AD"
+        "color": "#0769AD",
+        "url": "https://jquery.com/"
     },
     {
         "title": "JSON",
         "componentName": "JsonSvg",
-        "color": "#000000"
+        "color": "#000000",
+        "url": "https://developer.mozilla.org/en/docs/Web/JavaScript/Reference/Global_Objects/JSON"
     },
     {
         "title": "Kubernetes",
         "componentName": "KubernetesSvg",
-        "color": "#326CE5"
+        "color": "#326CE5",
+        "url": "https://kubernetes.io/"
     },
     {
         "title": "Let's Encrypt",
         "componentName": "LetsencryptSvg",
-        "color": "#003A70"
+        "color": "#003A70",
+        "url": "https://letsencrypt.org/"
     },
     {
         "title": "Linux",
         "componentName": "LinuxSvg",
-        "color": "#FCC624"
+        "color": "#FCC624",
+        "url": "https://www.linuxfoundation.org/"
     },
     {
         "title": "Markdown",
         "componentName": "MarkdownSvg",
-        "color": "#000000"
+        "color": "#000000",
+        "url": "https://www.markdownguide.org/"
     },
     {
         "title": "Mathworks",
         "componentName": "MathworksSvg",
-        "color": "#0076A8"
+        "color": "#0076A8",
+        "url": "https://www.mathworks.com/"
     },
     {
         "title": "MySQL",
         "componentName": "MysqlSvg",
-        "color": "#4479A1"
+        "color": "#4479A1",
+        "url": "https://www.mysql.com/"
     },
     {
         "title": "Netlify",
         "componentName": "NetlifySvg",
-        "color": "#00AD9F"
+        "color": "#00AD9F",
+        "url": "https://www.netlify.com/"
     },
     {
         "title": "Next.js",
         "componentName": "NextjsSvg",
-        "color": "#000000"
+        "color": "#000000",
+        "url": "https://nextjs.org/"
     },
     {
         "title": "NGINX",
         "componentName": "NginxSvg",
-        "color": "#269539"
+        "color": "#269539",
+        "url": "https://www.nginx.com/"
     },
     {
         "title": "Node.js",
         "componentName": "NodejsSvg",
-        "color": "#339933"
+        "color": "#339933",
+        "url": "https://nodejs.org/"
     },
     {
         "title": "NPM",
         "componentName": "NpmSvg",
-        "color": "#CB3837"
+        "color": "#CB3837",
+        "url": "https://www.npmjs.com/"
     },
     {
         "title": "NuGet",
         "componentName": "NugetSvg",
-        "color": "#004880"
+        "color": "#004880",
+        "url": "https://www.nuget.org/"
     },
     {
         "title": "Octopus Deploy",
         "componentName": "OctopusDeploySvg",
-        "color": "#2F93E0"
+        "color": "#2F93E0",
+        "url": "https://octopus.com/"
     },
     {
         "title": "Oracle",
         "componentName": "OracleSvg",
-        "color": "#F80000"
+        "color": "#F80000",
+        "url": "https://www.oracle.com/"
     },
     {
         "title": "PHP",
         "componentName": "PhpSvg",
-        "color": "#777BB4"
+        "color": "#777BB4",
+        "url": "https://www.php.net/"
     },
     {
         "title": "PostgreSQL",
         "componentName": "PostresqlSvg",
-        "color": "#336791"
+        "color": "#336791",
+        "url": "https://www.postgresql.org/"
     },
     {
         "title": "Postman",
         "componentName": "PostmanSvg",
-        "color": "#FF6C37"
+        "color": "#FF6C37",
+        "url": "https://www.getpostman.com/"
     },
     {
         "title": "Raspberry Pi",
         "componentName": "RaspberryPiSvg",
-        "color": "#C51A4A"
+        "color": "#C51A4A",
+        "url": "https://www.raspberrypi.org/"
     },
     {
         "title": "React",
         "componentName": "ReactSvg",
-        "color": "#61DAFB"
+        "color": "#61DAFB",
+        "url": "https://reactjs.org/"
     },
     {
         "title": "Redis",
         "componentName": "RedisSvg",
-        "color": "#D82C20"
+        "color": "#D82C20",
+        "url": "https://redis.io/"
     },
     {
         "title": "Redux",
         "componentName": "ReduxSvg",
-        "color": "#764ABC"
+        "color": "#764ABC",
+        "url": "https://redux.js.org/"
     },
     {
         "title": "Sass",
         "componentName": "SassSvg",
-        "color": "#CC6699"
+        "color": "#CC6699",
+        "url": "https://sass-lang.com/"
     },
     {
         "title": "Swagger",
         "componentName": "SwaggerSvg",
-        "color": "#85EA2D"
+        "color": "#85EA2D",
+        "url": "https://swagger.io/"
     },
     {
         "title": "Terraform",
         "componentName": "TerraformSvg",
-        "color": "#623CE4"
+        "color": "#623CE4",
+        "url": "https://www.terraform.io/"
     },
     {
         "title": "Twilio",
         "componentName": "TwilioSvg",
-        "color": "#F22F46"
+        "color": "#F22F46",
+        "url": "https://www.twilio.com/"
     },
     {
         "title": "TypeScript",
         "componentName": "TypescriptSvg",
-        "color": "#007ACC"
+        "color": "#007ACC",
+        "url": "https://www.typescriptlang.org/"
     },
     {
         "title": "Ubuntu",
         "componentName": "UbuntuSvg",
-        "color": "#E95420"
+        "color": "#E95420",
+        "url": "https://ubuntu.com/"
     },
     {
         "title": "Webpack",
         "componentName": "WebpackSvg",
-        "color": "#8DD6F9"
+        "color": "#8DD6F9",
+        "url": "https://webpack.js.org/"
     },
     {
         "title": "Windows",
         "componentName": "WindowsSvg",
-        "color": "#0078D6"
+        "color": "#0078D6",
+        "url": "https://developer.microsoft.com/en-us/windows"
     },
     {
         "title": "Yarn",
         "componentName": "YarnSvg",
-        "color": "#2C8EBB"
+        "color": "#2C8EBB",
+        "url": "https://yarnpkg.com/"
     }
 ]
