@@ -22,6 +22,34 @@ h1 {
     padding: 0px;
     line-height: 50px;
     text-align: center;
+
+    &:after {
+        content: attr(data-tooltip);
+        display: inline-block;
+        position: relative;
+        left: -125px;
+        width: 125px;
+        margin-right: -125px;
+        bottom: -50px;
+        white-space: nowrap;
+        color: white;
+        text-align: center;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    &:not(:hover) {
+        &:after {
+            opacity: 0;
+        }
+    }
+
+    &:hover {
+        &:after {
+            transition: opacity 2.0s;
+            transition-delay: 1.0s;
+        }
+    }
 }
 
 .proficiency-icon {
@@ -53,7 +81,16 @@ h1 {
     }
 
     #proficiency-icons-wrapper {
-        margin-left: 0;
-        margin-right: 0;
+        margin-left: 5px;
+        margin-right: 5px;
+    }
+
+    .icon-span {
+        &:after {
+            left: -100px;
+            width: 100px;
+            margin-right: -100px;
+            bottom: -50px;
+        }
     }
 }
