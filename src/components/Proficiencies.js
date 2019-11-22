@@ -32,22 +32,16 @@ const Proficiencies = () => {
                         >
                             <SvgComponent
                                 key={`icon-${proficiency.componentName}`}
-                                className="proficiency-icon"
+                                className="proficiency-icon no-select"
                                 fill={proficiency.color}
-                                onClick={(event) => {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-
+                                onClick={() => {
                                     if (isMobile() || !proficiency.url) {
                                         return;
                                     }
 
                                     window.open(proficiency.url, "_blank");
                                 }}
-                                onDoubleClick={(event) => {
-                                    event.preventDefault();
-                                    event.stopPropagation();
-
+                                onDoubleClick={() => {
                                     if (!isMobile() || !proficiency.url) {
                                         return;
                                     }
