@@ -16,7 +16,7 @@ const randomProficiencies = randomizeOrder(proficiencies);
 const Proficiencies = () => {
     return (
         <div id="proficiencies-wrapper">
-            <h1>{'THINGS I HAVE EXPERIENCE WITH'}</h1>
+            <h1>{'I HAVE EXPERIENCE WITH...'}</h1>
             <div id="proficiency-icons-wrapper">
                 {randomProficiencies.map(proficiency => {
                     const SvgComponent = require(`./proficiency-icons/${proficiency.componentName}`).default;
