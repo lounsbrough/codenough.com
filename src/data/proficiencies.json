@@ -1,11 +1,5 @@
 [
     {
-        "title": "Aerospace",
-        "componentName": "AerospaceSvg",
-        "color": "#CC0000",
-        "url": "https://www.aere.iastate.edu/"
-    },
-    {
         "title": "Android",
         "componentName": "AndroidSvg",
         "color": "#3DDC84",
