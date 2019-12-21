@@ -1,5 +1,6 @@
 import React from 'react';
-import {Form, FormGroup, Input, Label, Button} from 'reactstrap';
+import netlifyIdentity from 'netlify-identity-widget';
+import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
 import moment from 'moment';
 
 import * as clockifyApi from '../services/clockify-api';
@@ -50,45 +51,45 @@ class CreateInvoicePage extends React.Component {
     }
 
     async loadClockifyCurrentUser() {
-        const {id: currentUserId} = await clockifyApi.getCurrentUser();
+        const { id: currentUserId } = await clockifyApi.getCurrentUser();
 
-        await this.setClockifyState({currentUserId});
+        await this.setClockifyState({ currentUserId });
     }
 
     async loadClockifyWorkspaces() {
         const workspaces = await clockifyApi.getWorkspaces();
 
-        await this.setClockifyState({workspaces});
+        await this.setClockifyState({ workspaces });
     }
 
     async loadClockifyClients() {
         const clients = await clockifyApi.getClients(this.state.clockify.workspaceId);
 
-        await this.setClockifyState({clients});
+        await this.setClockifyState({ clients });
     }
 
     async loadClockifyTags() {
         const tags = await clockifyApi.getTags(this.state.clockify.workspaceId);
 
-        await this.setClockifyState({tags});
+        await this.setClockifyState({ tags });
     }
 
     async loadWaveBusinesses() {
         const businesses = await waveApi.getBusinesses();
 
-        await this.setWaveState({businesses});
+        await this.setWaveState({ businesses });
     }
 
     async loadWaveCustomers() {
         const customers = await waveApi.getCustomers(this.state.wave.businessId);
 
-        await this.setWaveState({customers});
+        await this.setWaveState({ customers });
     }
 
     async loadWaveProducts() {
         const products = await waveApi.getProducts(this.state.wave.businessId);
 
-        await this.setWaveState({products});
+        await this.setWaveState({ products });
     }
 
     async clockifyWorkspaceChanged(workspaceId) {
@@ -97,7 +98,7 @@ class CreateInvoicePage extends React.Component {
             clients: [],
             tags: []
         });
-        
+
         if (workspaceId) {
             this.loadClockifyClients();
             this.loadClockifyTags();
@@ -105,15 +106,15 @@ class CreateInvoicePage extends React.Component {
     }
 
     async clockifyClientChanged(clientId) {
-        await this.setClockifyState({clientId});
+        await this.setClockifyState({ clientId });
     }
 
     async clockifyStartDateChanged(startDate) {
-        await this.setClockifyState({startDate});
+        await this.setClockifyState({ startDate });
     }
 
     async clockifyEndDateChanged(endDate) {
-        await this.setClockifyState({endDate});
+        await this.setClockifyState({ endDate });
     }
 
     async waveBusinessChanged(businessId) {
@@ -122,7 +123,7 @@ class CreateInvoicePage extends React.Component {
             customers: [],
             products: []
         });
-        
+
         if (businessId) {
             this.loadWaveCustomers();
             this.loadWaveProducts();
@@ -130,11 +131,11 @@ class CreateInvoicePage extends React.Component {
     }
 
     async waveCustomerChanged(customerId) {
-        await this.setWaveState({customerId});
+        await this.setWaveState({ customerId });
     }
 
     async waveProductChanged(productId) {
-        await this.setWaveState({productId});
+        await this.setWaveState({ productId });
     }
 
     addTotalHours(timeEntries) {
@@ -165,22 +166,22 @@ class CreateInvoicePage extends React.Component {
     }
 
     async getTimeEntries() {
-        const {workspaceId, currentUserId, startDate, endDate} = this.state.clockify;
-        
+        const { workspaceId, currentUserId, startDate, endDate } = this.state.clockify;
+
         let timeEntries = await clockifyApi.getTimeEntries(workspaceId, currentUserId, startDate, endDate, true);
 
         timeEntries = this.addTotalHours(timeEntries);
         timeEntries = this.filterToSelectedClient(timeEntries);
         timeEntries = this.removeNonBillableAndBilled(timeEntries);
 
-        const {businessId, customerId, productId} = this.state.wave;
+        const { businessId, customerId, productId } = this.state.wave;
 
         const invoiceItems = timeEntries.map((entry) => ({
             description: entry.description,
             quantity: entry.totalHours,
             productId
         }));
-        
+
         await waveApi.createInvoice(businessId, customerId, invoiceItems);
 
         await this.markTimeEntriesAsBilled(timeEntries);
@@ -194,6 +195,10 @@ class CreateInvoicePage extends React.Component {
     }
 
     render() {
+        const user = netlifyIdentity.currentUser();
+
+        console.log({ user });
+
         return (
             <div>
                 <h1>{'Create an Invoice'}</h1>
@@ -204,7 +209,7 @@ class CreateInvoicePage extends React.Component {
                     <h4>{'Set Clockify Parameters'}</h4>
 
                     <FormGroup>
-                        <Input 
+                        <Input
                             type="select"
                             onChange={(event) => this.clockifyWorkspaceChanged(event.target.value)}
                         >
@@ -221,7 +226,7 @@ class CreateInvoicePage extends React.Component {
                     </FormGroup>
 
                     <FormGroup>
-                        <Input 
+                        <Input
                             type="select"
                             onChange={(event) => this.clockifyClientChanged(event.target.value)}
                         >
@@ -239,7 +244,7 @@ class CreateInvoicePage extends React.Component {
 
                     <FormGroup>
                         <Label>Start Date</Label>
-                        <Input 
+                        <Input
                             type="date"
                             onChange={(event) => this.clockifyStartDateChanged(event.target.value)}
                         />
@@ -247,7 +252,7 @@ class CreateInvoicePage extends React.Component {
 
                     <FormGroup>
                         <Label>End Date</Label>
-                        <Input 
+                        <Input
                             type="date"
                             onChange={(event) => this.clockifyEndDateChanged(event.target.value)}
                         />
@@ -256,7 +261,7 @@ class CreateInvoicePage extends React.Component {
                     <h4>{'Set Wave Parameters'}</h4>
 
                     <FormGroup>
-                        <Input 
+                        <Input
                             type="select"
                             onChange={(event) => this.waveBusinessChanged(event.target.value)}
                         >
@@ -273,7 +278,7 @@ class CreateInvoicePage extends React.Component {
                     </FormGroup>
 
                     <FormGroup>
-                        <Input 
+                        <Input
                             type="select"
                             onChange={(event) => this.waveCustomerChanged(event.target.value)}
                         >
@@ -290,7 +295,7 @@ class CreateInvoicePage extends React.Component {
                     </FormGroup>
 
                     <FormGroup>
-                        <Input 
+                        <Input
                             type="select"
                             onChange={(event) => this.waveProductChanged(event.target.value)}
                         >
