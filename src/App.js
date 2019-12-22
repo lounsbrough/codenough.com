@@ -20,7 +20,7 @@ const App = () => {
             </Helmet>
             <Router>
                 <Route exact path="/" component={HomePage} />
-                <Route path="/login" component={(props) => <InternalPageLayout pageTitle="Create Invoices"><LoginPage {...props} /></InternalPageLayout>} />
+                <Route path="/login" component={(props) => <InternalPageLayout pageTitle="Login"><LoginPage {...props} /></InternalPageLayout>} />
                 <PrivateRoute path="/create-invoice" component={(props) => <InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage {...props} /></InternalPageLayout>} />
             </Router>
         </>

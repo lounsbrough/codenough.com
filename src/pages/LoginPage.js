@@ -3,6 +3,7 @@ import netlifyIdentity from 'netlify-identity-widget';
 import {
     Redirect
 } from 'react-router-dom';
+import { Button } from 'reactstrap';
 
 const netlifyAuth = {
     authenticate(callback) {
@@ -41,7 +42,7 @@ class LoginPage extends React.Component {
         return (
             <div>
                 <p>You must log in to view the page at {from.pathname}</p>
-                <button onClick={this.login}>Log in</button>
+                <Button color="primary" onClick={this.login}>Log in</Button>
             </div>
         );
     }
