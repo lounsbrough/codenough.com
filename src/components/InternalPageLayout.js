@@ -1,7 +1,7 @@
 import React from 'react';
 
 import InternalHeader from './InternalHeader';
-import InternalFooter from './InternalHeader';
+import InternalFooter from './InternalFooter';
 
 const InternalPageLayout = (props) =>
     <>
