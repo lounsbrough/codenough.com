@@ -3,7 +3,7 @@
 
     padding: 50px 0 50px 0;
 
-    h1 {
+    h3 {
         color: white;
         font-size: 50px;
         padding-bottom: 30px;
@@ -51,10 +51,6 @@
 }
 
 @media screen and (max-width: 767px) {
-    h1 {
-        font-size: 20px;
-    }
-
     .proficiency-icon {
         height: 50px;
         padding: 10px;
@@ -64,5 +60,11 @@
     #proficiency-icons-wrapper {
         margin-left: 5px;
         margin-right: 5px;
+    }
+
+    #proficiencies-wrapper {
+        h3 {
+            font-size: 20px;
+        }
     }
 }
