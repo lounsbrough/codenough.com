@@ -12,7 +12,8 @@ class HomePage extends React.Component {
         this.state = {
             colorShowActive: false,
             defaultFaviconHref: null,
-            hue: Math.round(Math.random() * 359)
+            hue: Math.round(Math.random() * 359),
+            lastKeysDown: []
         };
     }
 
@@ -27,6 +28,8 @@ class HomePage extends React.Component {
 
         const appHeader = document.querySelector('.app-header');
         appHeader.addEventListener('click', (event) => this.toggleColorShow(event));
+
+        document.addEventListener("keydown", (event) => this.handleDocumentKeydown(event));
     }
 
     setDefaultColors() {
@@ -114,6 +117,28 @@ class HomePage extends React.Component {
 
     getFaviconElement() {
         return document.querySelector('link[rel*="icon"]');
+    }
+
+    updateLastKeysDown(newKey) {
+        let lastKeysDown = this.state.lastKeysDown;
+
+        if (lastKeysDown.length > 100) {
+            lastKeysDown.shift();
+        }
+        lastKeysDown.push(newKey);
+
+        this.setState({lastKeysDown});
+    }
+
+    checkKeySequence(code) {
+        return this.state.lastKeysDown.join('').includes(code);
+    }
+
+    handleDocumentKeydown(event) {
+        this.updateLastKeysDown(event.key);
+        if (this.checkKeySequence('admin')) {
+            window.location.href = "/create-invoice";
+        }
     }
 
     render() {
