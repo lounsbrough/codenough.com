@@ -11,8 +11,6 @@ import InternalPageLayout from './components/InternalPageLayout';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import CreateInvoicePage from './pages/CreateInvoicePage';
-import './css/App.scss';
-import 'bootstrap/dist/css/bootstrap.min.css';
 
 const App = () => {
     return (
@@ -23,7 +21,7 @@ const App = () => {
             <Router>
                 <Route exact path="/" component={HomePage} />
                 <Route path="/login" component={LoginPage} />
-                <PrivateRoute path="/create-invoice" component={() => <InternalPageLayout><CreateInvoicePage /></InternalPageLayout>} />
+                <PrivateRoute path="/create-invoice" component={() => <InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage /></InternalPageLayout>} />
             </Router>
         </>
     );

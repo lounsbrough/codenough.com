@@ -18,9 +18,9 @@ const InternalHeader = () => {
 
     return (
         <div>
-            <Navbar color="light" light expand="md">
+            <Navbar color="light" light expand="md" className="site-header">
                 <NavbarBrand href="/">
-                    <Logo format="fill" height={30} width={30} />
+                    <Logo format="fill" height={50} width={50} />
                 </NavbarBrand>
                 <NavbarToggler onClick={toggle} />
                 <Collapse isOpen={isOpen} navbar>

@@ -1,0 +1,16 @@
+.site-header {
+  padding-top: $site-header-padding-top;
+  padding-bottom: $site-header-padding-bottom;
+  min-height: $site-header-min-height;
+  background-color: $site-header-background-color !important;
+}
+
+.site-header * {
+  color: $site-header-text-color !important;
+}
+
+@media screen and (max-width: 500px) {
+  .site-header > a > span {
+    font-size: 5vw;
+  }
+}

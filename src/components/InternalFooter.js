@@ -1,6 +1,9 @@
 import React from 'react';
 
-const InternalFooter = () =>
-    <div>Footer</div>
+const InternalFooter = () => (
+    <footer className="site-footer">
+        {'Copyright © '}{(new Date().getFullYear())}{' Codenough'}
+    </footer>
+);
 
 export default InternalFooter;

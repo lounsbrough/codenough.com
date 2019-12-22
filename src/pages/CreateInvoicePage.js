@@ -201,7 +201,6 @@ class CreateInvoicePage extends React.Component {
 
         return (
             <div>
-                <h1>{'Create an Invoice'}</h1>
                 <Form
                     onSubmit={(event) => this.submitForm(event)}
                 >
