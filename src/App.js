@@ -7,6 +7,7 @@ import {
     Redirect
 } from 'react-router-dom';
 
+import InternalPageLayout from './components/InternalPageLayout';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import CreateInvoicePage from './pages/CreateInvoicePage';
@@ -22,7 +23,7 @@ const App = () => {
             <Router>
                 <Route exact path="/" component={HomePage} />
                 <Route path="/login" component={LoginPage} />
-                <PrivateRoute path="/create-invoice" component={CreateInvoicePage} />
+                <PrivateRoute path="/create-invoice" component={() => <InternalPageLayout><CreateInvoicePage /></InternalPageLayout>} />
             </Router>
         </>
     );
