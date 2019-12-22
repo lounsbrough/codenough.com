@@ -18,7 +18,7 @@ const InternalHeader = () => {
 
     return (
         <div>
-            <Navbar color="light" light expand="md" className="site-header">
+            <Navbar dark expand="md" className="site-header">
                 <NavbarBrand href="/">
                     <Logo format="fill" height={50} width={50} />
                 </NavbarBrand>
