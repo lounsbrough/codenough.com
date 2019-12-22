@@ -1,7 +1,7 @@
 import moment from 'moment';
 
 const baseUri = 'https://api.clockify.me/api/v1';
-const apiKey = process.env.REACT_APP_CLOCKIFY_API_KEY;
+const apiKey = atob(process.env.REACT_APP_CLOCKIFY_API_KEY);
 
 const fetchWrapper = async (url, options) => {
     return fetch(url, {

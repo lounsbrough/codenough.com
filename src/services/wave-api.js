@@ -1,5 +1,5 @@
 const baseUri = 'https://gql.waveapps.com/graphql/public';
-const apiKey = process.env.REACT_APP_WAVE_API_KEY;
+const apiKey = atob(process.env.REACT_APP_WAVE_API_KEY);
 
 const fetchWrapper = async (url, options) => {
     return fetch(url, {
