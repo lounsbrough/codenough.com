@@ -4,8 +4,8 @@ const baseUri = 'https://api.clockify.me/api/v1';
 
 const encodedApiKey = process.env.REACT_APP_CLOCKIFY_API_KEY;
 
-const getApiKey = () => {
-    return atob(encodedApiKey.split('').filter((value, index) => index % 2 === 0).join(''));
+const getApiKey = (encodedKey) => {
+    return atob(encodedKey.split('').filter((value, index) => index % 2 === 0).join(''));
 }
 
 const fetchWrapper = async (url, options) => {
@@ -13,7 +13,7 @@ const fetchWrapper = async (url, options) => {
         ...options,
         headers: {
             'Content-Type': 'application/json',
-            'X-Api-Key': getApiKey()
+            'X-Api-Key': getApiKey(encodedApiKey)
         }
     });
 };
