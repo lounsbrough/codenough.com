@@ -1,10 +1,8 @@
 import moment from 'moment';
 
-import {randomAlphanumeric} from '../utils/component-helpers';
-
 const baseUri = 'https://api.clockify.me/api/v1';
 
-const encodedApiKey = process.env.REACT_APP_CLOCKIFY_API_KEY.split('').map((character) => `${character}${randomAlphanumeric()}`).join('');
+const encodedApiKey = process.env.REACT_APP_CLOCKIFY_API_KEY;
 
 const getApiKey = () => {
     return atob(encodedApiKey.split('').filter((value, index) => index % 2 === 0).join(''));
