@@ -148,5 +148,9 @@ export const createInvoice = async (businessId, customerId, items) => {
         }),
     });
 
+    if (!response.ok) {
+        throw new Error(`Unable to create invoice ${JSON.stringify(variables)}`);
+    }
+
     return await response.json();
 };
