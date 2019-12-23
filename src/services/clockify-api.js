@@ -8,12 +8,14 @@ const getApiKey = (encodedKey) => {
     return atob(encodedKey.split('').filter((value, index) => index % 2 === 0).join(''));
 }
 
+const apiKey = getApiKey(encodedApiKey);
+
 const fetchWrapper = async (url, options) => {
     return fetch(url, {
         ...options,
         headers: {
             'Content-Type': 'application/json',
-            'X-Api-Key': getApiKey(encodedApiKey)
+            'X-Api-Key': apiKey
         }
     });
 };
