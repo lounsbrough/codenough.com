@@ -63,10 +63,14 @@ export const getTags = async (workspaceId) => {
 export const updateTimeEntry = async (workspaceId, id, updates) => {
     const endpoint = `${baseUri}/workspaces/${workspaceId}/time-entries/${id}`;
 
-    await fetchWrapper(endpoint, {
+    const response = await fetchWrapper(endpoint, {
         method: 'PUT',
         body: JSON.stringify(updates)
     });
+
+    if (!response.ok) {
+        throw new Error(`Unable to update entry ${JSON.stringify(updates)}`);
+    }
 };
 
 export const getTimeEntry = async (workspaceId, entryId, hydrated = false) => {
@@ -103,8 +107,12 @@ export const addTagToTimeEntry = async (workspaceId, entryId, tagId) => {
         tagIds: (entry.tagIds || []).concat(tagId)
     };
 
-    await fetchWrapper(endpoint, {
+    const response = await fetchWrapper(endpoint, {
         method: 'PUT',
         body: JSON.stringify(entryWithTag)
     });
+
+    if (!response.ok) {
+        throw new Error(`Unable to add tag to entry ${entryId}`);
+    }
 };

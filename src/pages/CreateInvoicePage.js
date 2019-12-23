@@ -1,6 +1,5 @@
 import React from 'react';
-import netlifyIdentity from 'netlify-identity-widget';
-import { Form, FormGroup, Input, Label, Button } from 'reactstrap';
+import { Form, FormGroup, Input, Label, Button, Modal, ModalHeader, ModalBody, ModalFooter, Alert } from 'reactstrap';
 import moment from 'moment';
 
 import * as clockifyApi from '../services/clockify-api';
@@ -20,7 +19,11 @@ class CreateInvoicePage extends React.Component {
                 businesses: [],
                 customers: [],
                 products: []
-            }
+            },
+            isModalOpen: false,
+            modalTitle: '',
+            modalContent: [],
+            isFormProcessing: false
         };
     }
 
@@ -149,7 +152,7 @@ class CreateInvoicePage extends React.Component {
         return timeEntries.filter((entry) => entry.project.clientId === this.state.clockify.clientId);
     }
 
-    removeNonBillableAndBilled(timeEntries) {
+    filterToBillableAndNotBilled(timeEntries) {
         const billedTag = this.getBilledTag();
 
         return timeEntries.filter((entry) => entry.billable && !entry.tags.some((tag) => tag.id === billedTag.id));
@@ -165,46 +168,117 @@ class CreateInvoicePage extends React.Component {
         );
     }
 
-    async getTimeEntries() {
+    validateForm() {
+        if (!this.state.clockify.workspaceId) {
+            return 'Please select a Clockify workspace';
+        } else if (!this.state.clockify.clientId) {
+            return 'Please select a Clockify client';
+        } else if (!this.state.clockify.startDate) {
+            return 'Please select a Clockify start date';
+        } else if (!this.state.clockify.endDate) {
+            return 'Please select an Clockify end date';
+        } else if (!this.state.wave.businessId) {
+            return 'Please select a Wave business';
+        } else if (!this.state.wave.customerId) {
+            return 'Please select a Wave customer';
+        } else if (!this.state.wave.productId) {
+            return 'Please select a Wave product';
+        }
+
+        return null;
+    }
+
+    async processForm() {
         const { workspaceId, currentUserId, startDate, endDate } = this.state.clockify;
 
+        this.appendModalContent('Looking up time entries...');
         let timeEntries = await clockifyApi.getTimeEntries(workspaceId, currentUserId, startDate, endDate, true);
 
+        if (!timeEntries.length) {
+            this.appendModalContent('No time entries were found!');
+
+            return;
+        }
+
+        this.appendModalContent(`Found ${timeEntries.length} time entries`);
+
+        this.appendModalContent('Calculating total hours from timestamps...');
         timeEntries = this.addTotalHours(timeEntries);
+
+        this.appendModalContent('Filtering entries to selected client...');
         timeEntries = this.filterToSelectedClient(timeEntries);
-        timeEntries = this.removeNonBillableAndBilled(timeEntries);
+
+        this.appendModalContent('Filtering entries to billable and not billed...');
+        timeEntries = this.filterToBillableAndNotBilled(timeEntries);
 
         const { businessId, customerId, productId } = this.state.wave;
 
+        this.appendModalContent('Mapping entries to Wave format...');
         const invoiceItems = timeEntries.map((entry) => ({
             description: entry.description,
             quantity: entry.totalHours,
             productId
         }));
 
+        this.appendModalContent('Creating invoice in Wave...');
         await waveApi.createInvoice(businessId, customerId, invoiceItems);
+        this.appendModalContent('Invoice created');
 
+        this.appendModalContent('Marking entries as billed in Clockify...');
         await this.markTimeEntriesAsBilled(timeEntries);
+        this.appendModalContent('Entries marked as billed');
     }
 
     async submitForm(event) {
         event.preventDefault();
         event.stopPropagation();
 
-        this.getTimeEntries();
+        const error = this.validateForm();
+
+        if (error) {
+            this.setState({
+                modalTitle: 'Error in form',
+                modalContent: [<Alert color="danger">{error}</Alert>]
+            });
+            this.toggleModal();
+
+            return;
+        }
+
+        this.setState({
+            isFormProcessing: true,
+            modalTitle: 'Processing Invoice',
+            modalContent: []
+        });
+        this.toggleModal();
+
+        await this.processForm();
+
+        this.setState({isFormProcessing: false});
+    }
+
+    appendModalContent(content) {
+        const modalContent = [...this.state.modalContent];
+
+        modalContent.push(<p key={content}>{content}</p>);
+
+        this.setState({modalContent});
+    }
+
+    toggleModal() {
+        if (this.state.isModalOpen) {
+            this.setState({modalContent: []})
+        }
+
+        this.setState({isModalOpen: !this.state.isModalOpen});
     }
 
     render() {
-        const user = netlifyIdentity.currentUser();
-
-        console.log({ user });
-
         return (
             <div>
                 <Form
                     onSubmit={(event) => this.submitForm(event)}
                 >
-
                     <h4>{'Set Clockify Parameters'}</h4>
 
                     <FormGroup>
@@ -310,8 +384,17 @@ class CreateInvoicePage extends React.Component {
                         </Input>
                     </FormGroup>
 
-                    <Button color="primary">Process Invoice</Button>
+                    <Button color="primary" disabled={this.state.isModalOpen}>Process Invoice</Button>
                 </Form>
+                <Modal isOpen={this.state.isModalOpen} toggle={() => !this.state.isFormProcessing && this.toggleModal()}>
+                    <ModalHeader toggle={() => this.toggleModal()}>{this.state.modalTitle}</ModalHeader>
+                    <ModalBody>
+                        {this.state.modalContent}
+                    </ModalBody>
+                    <ModalFooter>
+                        <Button color="primary" onClick={() => this.toggleModal()} disabled={this.state.isFormProcessing}>Close</Button>
+                    </ModalFooter>
+                </Modal>
             </div>
         );
     }
