@@ -1,14 +1,21 @@
 import moment from 'moment';
 
+import {randomAlphanumeric} from '../utils/component-helpers';
+
 const baseUri = 'https://api.clockify.me/api/v1';
-const apiKey = atob(process.env.REACT_APP_CLOCKIFY_API_KEY);
+
+const encodedApiKey = process.env.REACT_APP_CLOCKIFY_API_KEY.split('').map((character) => `${character}${randomAlphanumeric()}`).join('');
+
+const getApiKey = () => {
+    return atob(encodedApiKey.split('').filter((value, index) => index % 2 === 0).join(''));
+}
 
 const fetchWrapper = async (url, options) => {
     return fetch(url, {
         ...options,
         headers: {
             'Content-Type': 'application/json',
-            'X-Api-Key': apiKey
+            'X-Api-Key': getApiKey()
         }
     });
 };

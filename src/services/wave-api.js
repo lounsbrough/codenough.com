@@ -1,12 +1,12 @@
 const baseUri = 'https://gql.waveapps.com/graphql/public';
-const apiKey = atob(process.env.REACT_APP_WAVE_API_KEY);
+const apiKey = process.env.REACT_APP_WAVE_API_KEY;
 
 const fetchWrapper = async (url, options) => {
     return fetch(url, {
         ...options,
         headers: {
             'Content-Type': 'application/json',
-            'Authorization': `Bearer ${apiKey}`
+            'Authorization': `Bearer ${atob(apiKey)}`
         }
     });
 };

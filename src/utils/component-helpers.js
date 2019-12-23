@@ -13,3 +13,9 @@ export const isMobile = () => {
 
     return false;
 };
+
+export const randomAlphanumeric = () => {
+    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
+
+    return possible[Math.floor(Math.random() * possible.length)];
+};
