@@ -1,6 +1,7 @@
 import React from 'react';
 import { Form, FormGroup, Input, Label, Button, Modal, ModalHeader, ModalBody, ModalFooter, Alert } from 'reactstrap';
 import moment from 'moment';
+import netlifyIdentity from 'netlify-identity-widget';
 
 import * as clockifyApi from '../services/clockify-api';
 import * as waveApi from '../services/wave-api';
@@ -28,6 +29,16 @@ class CreateInvoicePage extends React.Component {
     }
 
     async componentDidMount() {
+        const user = netlifyIdentity.currentUser();
+
+        const userRoles = user['app_metadata'].roles;
+
+        const clockifyApiKey = userRoles.find((role) => role.includes('clockify-api-key-')).replace('clockify-api-key-', '');
+        const waveApiKey = userRoles.find((role) => role.includes('wave-api-key-')).replace('wave-api-key-', '');
+
+        clockifyApi.setApiKey(clockifyApiKey);
+        waveApi.setApiKey(waveApiKey);
+
         await this.loadClockifyCurrentUser();
         await this.loadClockifyWorkspaces();
         await this.loadWaveBusinesses();

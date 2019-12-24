@@ -2,20 +2,20 @@ import moment from 'moment';
 
 const baseUri = 'https://api.clockify.me/api/v1';
 
-const encodedApiKey = process.env.REACT_APP_CLOCKIFY_API_KEY;
+let apiKey;
 
-const getApiKey = (encodedKey) => {
-    return atob(encodedKey.split('').filter((value, index) => index % 2 === 0).join(''));
-}
+const getApiKey = () => apiKey;
 
-const apiKey = getApiKey(encodedApiKey);
+export const setApiKey = (key) => {
+    apiKey = key;
+};
 
 const fetchWrapper = async (url, options) => {
     return fetch(url, {
         ...options,
         headers: {
             'Content-Type': 'application/json',
-            'X-Api-Key': apiKey
+            'X-Api-Key': getApiKey()
         }
     });
 };
