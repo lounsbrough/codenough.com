@@ -29,15 +29,7 @@ class CreateInvoicePage extends React.Component {
     }
 
     async componentDidMount() {
-        const user = netlifyIdentity.currentUser();
-
-        const userRoles = user['app_metadata'].roles;
-
-        const clockifyApiKey = userRoles.find((role) => role.includes('clockify-api-key-')).replace('clockify-api-key-', '');
-        const waveApiKey = userRoles.find((role) => role.includes('wave-api-key-')).replace('wave-api-key-', '');
-
-        clockifyApi.setApiKey(clockifyApiKey);
-        waveApi.setApiKey(waveApiKey);
+        this.setApiKeys();
 
         await this.loadClockifyCurrentUser();
         await this.loadClockifyWorkspaces();
@@ -45,6 +37,17 @@ class CreateInvoicePage extends React.Component {
     }
 
     setStateAsync = (newState) => new Promise((resolve) => this.setState(newState, resolve));
+
+    setApiKeys() {
+        const user = netlifyIdentity.currentUser();
+        const userRoles = user['app_metadata'].roles;
+
+        const clockifyApiKey = userRoles.find((role) => role.includes('clockify-api-key-')).replace('clockify-api-key-', '');
+        const waveApiKey = userRoles.find((role) => role.includes('wave-api-key-')).replace('wave-api-key-', '');
+
+        clockifyApi.setApiKey(clockifyApiKey);
+        waveApi.setApiKey(waveApiKey);
+    }
 
     async setClockifyState(state) {
         await this.setStateAsync({
