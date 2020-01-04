@@ -83,7 +83,7 @@ export const getTimeEntry = async (workspaceId, entryId, hydrated = false) => {
 
 export const getTimeEntries = async (workspaceId, userId, startDate, endDate, hydrated = false) => {
     startDate = moment(startDate).toISOString();
-    endDate = moment(endDate).toISOString();
+    endDate = moment(endDate).add(1, 'days').toISOString();
 
     const endpoint = `${baseUri}/workspaces/${workspaceId}/user/${userId}/time-entries?hydrated=${hydrated}&page-size=100000&start=${startDate}&end=${endDate}`;
 
