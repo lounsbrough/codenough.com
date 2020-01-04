@@ -208,6 +208,12 @@ class CreateInvoicePage extends React.Component {
         this.appendModalContent('Looking up time entries...');
         let timeEntries = await clockifyApi.getTimeEntries(workspaceId, currentUserId, startDate, endDate, true);
 
+        this.appendModalContent('Filtering entries to selected client...');
+        timeEntries = this.filterToSelectedClient(timeEntries);
+
+        this.appendModalContent('Filtering entries to billable and not billed...');
+        timeEntries = this.filterToBillableAndNotBilled(timeEntries);
+
         if (!timeEntries.length) {
             this.appendModalContent('No time entries were found!');
 
@@ -218,12 +224,6 @@ class CreateInvoicePage extends React.Component {
 
         this.appendModalContent('Calculating total hours from timestamps...');
         timeEntries = this.addTotalHours(timeEntries);
-
-        this.appendModalContent('Filtering entries to selected client...');
-        timeEntries = this.filterToSelectedClient(timeEntries);
-
-        this.appendModalContent('Filtering entries to billable and not billed...');
-        timeEntries = this.filterToBillableAndNotBilled(timeEntries);
 
         const { businessId, customerId, productId } = this.state.wave;
 
