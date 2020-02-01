@@ -1,0 +1,16 @@
+{
+"companyName": "Codenough",
+"productName": "CodenoughPlatform",
+"productVersion": "0.1",
+"dataUrl": "unity-platform-game.data.unityweb",
+"wasmCodeUrl": "unity-platform-game.wasm.code.unityweb",
+"wasmFrameworkUrl": "unity-platform-game.wasm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0","WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Light",
+"backgroundColor": "#828080",
+"cacheControl": {"default": "must-revalidate"},
+"developmentBuild": false,
+"multithreading": false,
+"unityVersion": "2019.2.18f1"
+}
