@@ -11,6 +11,7 @@ import InternalPageLayout from './components/InternalPageLayout';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
 import CreateInvoicePage from './pages/CreateInvoicePage';
+import SkydivingGame from './components/SkydivingGame';
 import PlatformGame from './components/PlatformGame';
 
 const App = () => {
@@ -22,6 +23,7 @@ const App = () => {
             <Router>
                 <Route exact path="/" component={HomePage} />
                 <Route path="/login" component={(props) => <InternalPageLayout pageTitle="Login"><LoginPage {...props} /></InternalPageLayout>} />
+                <Route path="/skydiving" component={(props) => <SkydivingGame {...props} />} />
                 <Route path="/game" component={(props) => <PlatformGame {...props} />} />
                 <PrivateRoute path="/create-invoice" component={(props) => <InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage {...props} /></InternalPageLayout>} />
             </Router>
