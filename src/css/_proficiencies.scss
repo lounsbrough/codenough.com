@@ -5,6 +5,10 @@
 .proficiency-icons-wrapper {
     margin-left: 20px;
     margin-right: 20px;
+    display: flex;
+    min-height: 80vh;
+    justify-content: center;
+    flex-wrap: wrap;
 }
 
 .icon-span {
