@@ -4,6 +4,7 @@ import ColorScheme from 'color-scheme';
 import Logo from '../components/logo/Logo';
 import Letters from '../components/logo/Letters';
 import Proficiencies from '../components/Proficiencies';
+import Testimonials from '../components/Testimonials';
 
 class HomePage extends React.Component {
     constructor(props, context) {
@@ -149,6 +150,7 @@ class HomePage extends React.Component {
                     <Letters />
                 </header>
                 <Proficiencies />
+                <Testimonials />
             </div>
         );
     }
