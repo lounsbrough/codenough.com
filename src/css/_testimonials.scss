@@ -1,5 +1,9 @@
+.testimonials-wrapper {
+    position: relative;
+}
+
 .carousel-inner {
-    min-height: 80vh;
+    min-height: 90vh;
     display: flex;
     align-items: center;
     padding-left: 15%;
@@ -24,6 +28,11 @@
         .carousel-item {
             h1 {
                 font-size: 32px;
+            }
+
+            h2 {
+                font-size: 24px;
+                float: none;
             }
         }
     }

@@ -1,4 +1,6 @@
 import React from 'react';
+import {Button} from 'reactstrap';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import proficiencies from '../data/proficiencies';
 import {hexToHSL, HSLToHex} from '../utils/color-functions';
@@ -15,7 +17,6 @@ const randomProficiencies = randomizeOrder(proficiencies);
 
 const Proficiencies = () =>
     <div className="proficiencies-wrapper home-page-section-wrapper">
-        <h3>{'I HAVE EXPERIENCE WITH...'}</h3>
         <div className="proficiency-icons-wrapper">
             {randomProficiencies.map(proficiency => {
                 const SvgComponent = require(`./proficiency-icons/${proficiency.componentName}`).default;
@@ -53,6 +54,15 @@ const Proficiencies = () =>
                 );
             })}
         </div>
+        <Button
+            color="primary"
+            className="btn-circle proficiencies-circle-button"
+            onClick={() => document.querySelector('.testimonials-wrapper').scrollIntoView({behavior: 'smooth'})}
+        >
+            <FontAwesomeIcon
+                icon="arrow-down"
+            />
+        </Button>
     </div>;
 
 export default Proficiencies;

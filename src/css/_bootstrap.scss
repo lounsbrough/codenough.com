@@ -1,5 +1,39 @@
 $theme-colors: (
-  primary: #006680
+  primary: #006680,
+  secondary: #1ccbd2
 ) !default;
 
 @import '~bootstrap/scss/bootstrap.scss';
+
+.btn-circle {
+    width: 70px;
+    height: 70px;
+    padding: 6px 0px;
+    border-radius: 100px;
+    border: none;
+    text-align: center;
+    font-size: 32px;
+    line-height: 1.42857;
+    box-shadow: theme-color("primary") 0px 0px 7px 2px;
+    background-color: theme-color("secondary");
+    transition: all .5s ease-in-out;
+
+    &:focus {
+        box-shadow: theme-color("primary") 0px 0px 7px 2px;
+        background-color: theme-color("secondary");
+    }
+
+    &:hover {
+        transform: scale(1.1);
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .btn-circle {
+        width: 50px;
+        height: 50px;
+        padding: 2px 0px;
+        font-size: 24px;
+        line-height: 1;
+    }    
+}
