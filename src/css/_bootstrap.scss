@@ -13,7 +13,7 @@ $theme-colors: (
     border: none;
     text-align: center;
     font-size: 32px;
-    line-height: 1.42857;
+    line-height: 1;
     box-shadow: theme-color("primary") 0px 0px 7px 2px;
     background-color: theme-color("secondary");
     transition: all .5s ease-in-out;
@@ -34,6 +34,5 @@ $theme-colors: (
         height: 50px;
         padding: 2px 0px;
         font-size: 24px;
-        line-height: 1;
     }    
 }
