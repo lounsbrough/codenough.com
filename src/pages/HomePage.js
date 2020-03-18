@@ -1,6 +1,7 @@
 import React from 'react';
 import ColorScheme from 'color-scheme';
 import {Button} from 'reactstrap';
+import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 
 import Logo from '../components/logo/Logo';
 import Letters from '../components/logo/Letters';
@@ -33,7 +34,7 @@ class HomePage extends React.Component {
 
     setDefaultColors() {
         document.querySelectorAll('.app-header svg path').forEach(svgPath => {
-            svgPath.style.fill = "inherit"
+            svgPath.style.fill = "white"
         });
 
         document.querySelectorAll('.app-header .logo').forEach((logo) => {
@@ -148,10 +149,19 @@ class HomePage extends React.Component {
                 <header className="app-header">
                     <Button
                         color="primary"
-                        className="btn-circle"
+                        className="btn-circle home-page-circle-button"
                         onClick={() => this.toggleColorShow()}
                     >
                         <Logo className="logo" format="fillWhite" height="30" width="30" />
+                    </Button>
+                    <Button
+                        color="primary"
+                        className="btn-circle home-page-circle-button"
+                        onClick={() => document.querySelector('.proficiencies-wrapper').scrollIntoView({behavior: 'smooth'})}
+                    >
+                        <FontAwesomeIcon
+                            icon="arrow-down"
+                        />
                     </Button>
                     <Logo className="logo" format="fillWhite" height="500" width="80%" />
                     <Letters />
