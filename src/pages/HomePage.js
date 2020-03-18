@@ -1,5 +1,6 @@
 import React from 'react';
 import ColorScheme from 'color-scheme';
+import {Button} from 'reactstrap';
 
 import Logo from '../components/logo/Logo';
 import Letters from '../components/logo/Letters';
@@ -27,9 +28,6 @@ class HomePage extends React.Component {
 
         this.randomColorShow();
 
-        const appHeader = document.querySelector('.app-header');
-        appHeader.addEventListener('click', (event) => this.toggleColorShow(event));
-
         document.addEventListener("keydown", (event) => this.handleDocumentKeydown(event));
     }
 
@@ -38,8 +36,10 @@ class HomePage extends React.Component {
             svgPath.style.fill = "inherit"
         });
 
-        document.querySelectorAll('.app-header .logo path').forEach((path, index) => {
-            path.style.fill = index === 0 ? "#006680" : "#ffffff";
+        document.querySelectorAll('.app-header .logo').forEach((logo) => {
+            logo.querySelectorAll('path').forEach((path, index) => {
+                path.style.fill = index === 0 ? "#006680" : "#ffffff";
+            });
         });
 
         document.querySelectorAll('.app-header .letter path').forEach(svgPath => {
@@ -146,6 +146,13 @@ class HomePage extends React.Component {
         return (
             <div className="app">
                 <header className="app-header">
+                    <Button
+                        color="primary"
+                        className="btn-circle"
+                        onClick={() => this.toggleColorShow()}
+                    >
+                        <Logo className="logo" format="fillWhite" height="30" width="30" />
+                    </Button>
                     <Logo className="logo" format="fillWhite" height="500" width="80%" />
                     <Letters />
                 </header>
