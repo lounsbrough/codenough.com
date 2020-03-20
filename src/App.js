@@ -7,7 +7,7 @@ import {
     Redirect
 } from 'react-router-dom';
 import {library} from '@fortawesome/fontawesome-svg-core';
-import {faArrowDown} from '@fortawesome/free-solid-svg-icons';
+import {faArrowDown, faCloud} from '@fortawesome/free-solid-svg-icons';
 
 import InternalPageLayout from './components/InternalPageLayout';
 import LoginPage from './pages/LoginPage';
@@ -16,7 +16,7 @@ import CreateInvoicePage from './pages/CreateInvoicePage';
 import SkydivingGame from './components/SkydivingGame';
 import PlatformGame from './components/PlatformGame';
 
-library.add(faArrowDown);
+library.add(faArrowDown, faCloud);
 
 const App = () => {
     return (

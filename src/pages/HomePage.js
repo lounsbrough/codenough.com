@@ -157,11 +157,16 @@ class HomePage extends React.Component {
                     <Button
                         color="primary"
                         className="btn-circle home-page-circle-button"
+                        onClick={() => window.location.href = "/skydiving"}
+                    >
+                        <FontAwesomeIcon icon="cloud" />
+                    </Button>
+                    <Button
+                        color="primary"
+                        className="btn-circle home-page-circle-button"
                         onClick={() => document.querySelector('.proficiencies-wrapper').scrollIntoView({behavior: 'smooth'})}
                     >
-                        <FontAwesomeIcon
-                            icon="arrow-down"
-                        />
+                        <FontAwesomeIcon icon="arrow-down" />
                     </Button>
                     <Logo className="logo" format="fillWhite" height="500" width="80%" />
                     <Letters />
