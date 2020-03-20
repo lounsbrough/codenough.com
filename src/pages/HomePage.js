@@ -157,7 +157,7 @@ class HomePage extends React.Component {
                     <Button
                         color="primary"
                         className="btn-circle home-page-circle-button"
-                        onClick={() => window.location.href = "/skydiving"}
+                        onClick={() => window.open("/skydiving")}
                     >
                         <FontAwesomeIcon icon="cloud" />
                     </Button>
