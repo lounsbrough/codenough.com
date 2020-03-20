@@ -32,7 +32,7 @@ class SkydivingGame extends React.Component {
     render() {
         return (
             <>
-                {this.state.isLoading && <Progress value={this.state.loadingProgress} />}
+                {this.state.isLoading && <Progress animated value={this.state.loadingProgress} />}
                 <Unity unityContent={this.unityContent} />
             </>
         );
