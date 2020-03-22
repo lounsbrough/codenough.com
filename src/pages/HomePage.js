@@ -2,6 +2,7 @@ import React from 'react';
 import ColorScheme from 'color-scheme';
 import {Button} from 'reactstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {isMobile} from 'react-device-detect';
 
 import Logo from '../components/logo/Logo';
 import Letters from '../components/logo/Letters';
@@ -149,21 +150,21 @@ class HomePage extends React.Component {
                 <header className="app-header">
                     <Button
                         color="primary"
-                        className="btn-circle home-page-circle-button"
+                        className="btn-circle btn-float-top-left home-page-circle-button"
                         onClick={() => this.toggleColorShow()}
                     >
                         <Logo className="logo" format="fillWhite" height="30" width="30" />
                     </Button>
-                    <Button
+                    {!isMobile && <Button
                         color="primary"
-                        className="btn-circle home-page-circle-button"
+                        className="btn-circle btn-float-top-right home-page-circle-button"
                         onClick={() => window.open("/skydiving")}
                     >
                         <FontAwesomeIcon icon="cloud" />
-                    </Button>
+                    </Button>}
                     <Button
                         color="primary"
-                        className="btn-circle home-page-circle-button"
+                        className="btn-circle btn-float-bottom-right home-page-circle-button"
                         onClick={() => document.querySelector('.proficiencies-wrapper').scrollIntoView({behavior: 'smooth'})}
                     >
                         <FontAwesomeIcon icon="arrow-down" />

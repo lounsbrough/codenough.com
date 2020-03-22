@@ -4,19 +4,19 @@
     padding: 5vh 0 5vh 0;
 }
 
-.home-page-circle-button:nth-of-type(1) {
+.btn-float-top-left {
     position: absolute;
     top: 25px;
     left: 25px;
 }
 
-.home-page-circle-button:nth-of-type(2) {
+.btn-float-top-right {
     position: absolute;
     top: 25px;
     right: 25px;
 }
 
-.home-page-circle-button:nth-of-type(3) {
+.btn-float-bottom-right {
     position: absolute;
     bottom: 25px;
     right: 25px;
