@@ -150,21 +150,21 @@ class HomePage extends React.Component {
                 <header className="app-header">
                     <Button
                         color="primary"
-                        className="btn-circle btn-float-top-left home-page-circle-button"
+                        className="btn-circle btn-float-top-left"
                         onClick={() => this.toggleColorShow()}
                     >
                         <Logo className="logo" format="fillWhite" height="30" width="30" />
                     </Button>
                     {!isMobile && <Button
                         color="primary"
-                        className="btn-circle btn-float-top-right home-page-circle-button"
+                        className="btn-circle btn-float-top-right"
                         onClick={() => window.open("/skydiving")}
                     >
                         <FontAwesomeIcon icon="cloud" />
                     </Button>}
                     <Button
                         color="primary"
-                        className="btn-circle btn-float-bottom-right home-page-circle-button"
+                        className="btn-circle btn-float-bottom-right"
                         onClick={() => document.querySelector('.proficiencies-wrapper').scrollIntoView({behavior: 'smooth'})}
                     >
                         <FontAwesomeIcon icon="arrow-down" />
