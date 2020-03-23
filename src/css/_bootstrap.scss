@@ -36,3 +36,29 @@ $theme-colors: (
         font-size: 24px;
     }    
 }
+
+.carousel-item * {
+    transition: opacity 0.6s ease-in-out;
+    -moz-transition: opacity 0.6s ease-in-out;
+    -webkit-transition: opacity 0.6s ease-in-out;
+}
+
+.carousel-item.active * {
+    opacity: 1;
+}
+
+.carousel-item:not(.active) * {
+    opacity: 0;
+}
+
+.carousel-item-next:not(.carousel-item-left),
+.active.carousel-item-right {
+  -webkit-transform: translateX(200%);
+  transform: translateX(200%);
+}
+
+.carousel-item-prev:not(.carousel-item-right),
+.active.carousel-item-left {
+  -webkit-transform: translateX(-200%);
+  transform: translateX(-200%);
+}
