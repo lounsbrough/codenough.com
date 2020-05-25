@@ -2,12 +2,14 @@ import React from 'react';
 import {Progress} from 'reactstrap';
 import Unity, {UnityContent} from 'react-unity-webgl';
 
+const minimumProgress = 5;
+
 class SkydivingGame extends React.Component {
     constructor(props) {
         super(props);
 
         this.state = {
-            loadingProgress: 0,
+            loadingProgress: minimumProgress,
             isLoading: true
         };
 
@@ -18,7 +20,7 @@ class SkydivingGame extends React.Component {
 
         this.unityContent.on("progress", progress => {
             this.setState({
-                loadingProgress: progress * 100
+                loadingProgress: Math.max(minimumProgress, progress * 100)
             });
         });
 

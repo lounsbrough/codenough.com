@@ -114,6 +114,12 @@
         "url": "https://cloud.google.com/"
     },
     {
+        "title": "Gulp",
+        "componentName": "GulpSvg",
+        "color": "#DA4648",
+        "url": "https://gulpjs.com/"
+    },
+    {
         "title": "Helm",
         "componentName": "HelmSvg",
         "color": "#277A9F",
