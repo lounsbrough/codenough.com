@@ -229,7 +229,7 @@ class CreateInvoicePage extends React.Component {
 
         this.appendModalContent('Mapping entries to Wave format...');
         const invoiceItems = timeEntries.map((entry) => ({
-            description: entry.description,
+            description: `${entry.description} ${moment(entry.timeInterval.end).format('M/D/YY h:mm a')} - ${moment(entry.timeInterval.start).format('M/D/YY h:mm a')}`,
             quantity: entry.totalHours,
             productId
         }));
@@ -241,6 +241,8 @@ class CreateInvoicePage extends React.Component {
         this.appendModalContent('Marking entries as billed in Clockify...');
         await this.markTimeEntriesAsBilled(timeEntries);
         this.appendModalContent('Entries marked as billed');
+
+        this.appendModalContent('Done!');
     }
 
     async submitForm(event) {
