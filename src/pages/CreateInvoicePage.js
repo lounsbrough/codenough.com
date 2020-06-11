@@ -229,7 +229,7 @@ class CreateInvoicePage extends React.Component {
 
         this.appendModalContent('Mapping entries to Wave format...');
         const invoiceItems = timeEntries.map((entry) => ({
-            description: `${entry.description} ${moment(entry.timeInterval.end).format('M/D/YY h:mm a')} - ${moment(entry.timeInterval.start).format('M/D/YY h:mm a')}`,
+            description: `${entry.description} - ${moment(entry.timeInterval.start).format('M/D/YY')} (${moment(entry.timeInterval.start).format('h:mm a')} - ${moment(entry.timeInterval.end).format('h:mm a')})`,
             quantity: entry.totalHours,
             productId
         }));
