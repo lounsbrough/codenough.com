@@ -64,7 +64,7 @@ class HomePage extends React.Component {
             const svgPaths = document.querySelectorAll('.app-header svg path');
 
             svgPaths.forEach((svgPath, index) => {
-                svgPath.style.fill = colorScheme[index % 12];
+                svgPath.style.fill = `#${colorScheme[index % 12]}`;
             });
 
             document.querySelector('.app').style.backgroundColor = "#00141A";
@@ -91,7 +91,6 @@ class HomePage extends React.Component {
         return scheme.from_hue(this.state.hue)
             .scheme('analogic')
             .variation('default')
-            .web_safe(true)
             .colors();
     }
 
