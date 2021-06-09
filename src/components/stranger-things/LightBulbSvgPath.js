@@ -10,7 +10,6 @@ const hexToRgb = (hex) => {
     } : null
 };
 
-// eslint-disable-next-line react/prop-types
 const LightBulbSvgPath = ({coordinates, hexColor, on, clickHandler}) => {
     const rgb = hexToRgb(hexColor);
 
