@@ -15,6 +15,7 @@ import HomePage from './pages/HomePage';
 import CreateInvoicePage from './pages/CreateInvoicePage';
 import SkydivingGame from './components/SkydivingGame';
 import PlatformGame from './components/PlatformGame';
+import StrangerThings from './components/stranger-things/StrangerThings';
 
 library.add(faArrowDown, faCloud);
 
@@ -29,6 +30,7 @@ const App = () => {
                 <Route path="/login" component={(props) => <InternalPageLayout pageTitle="Login"><LoginPage {...props} /></InternalPageLayout>} />
                 <Route path="/skydiving" component={(props) => <SkydivingGame {...props} />} />
                 <Route path="/game" component={(props) => <PlatformGame {...props} />} />
+                <Route path="/stranger-things" component={(props) => <StrangerThings {...props} />} />
                 <PrivateRoute path="/create-invoice" component={(props) => <InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage {...props} /></InternalPageLayout>} />
             </Router>
         </>
