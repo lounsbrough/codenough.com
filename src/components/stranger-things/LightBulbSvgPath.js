@@ -15,6 +15,7 @@ const LightBulbSvgPath = ({coordinates, hexColor, on, clickHandler}) => {
 
     return (
         <path
+            style={{cursor: 'pointer'}}
             d={coordinates}
             fill={`rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${on ? 1 : 0.15})`}
             stroke={`rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${on ? 1 : 0.9})`}

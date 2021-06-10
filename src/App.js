@@ -9,6 +9,7 @@ import {
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faArrowDown, faCloud} from '@fortawesome/free-solid-svg-icons';
 
+import SocketContext, {socket} from './socket';
 import InternalPageLayout from './components/InternalPageLayout';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
@@ -19,25 +20,22 @@ import StrangerThings from './components/stranger-things/StrangerThings';
 
 library.add(faArrowDown, faCloud);
 
-const App = () => {
-    return (
-        <>
-            <Helmet>
-                <link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat&display=swap" rel="stylesheet"></link>
-            </Helmet>
-            <Router>
-                <Route exact path="/" component={HomePage} />
-                <Route path="/login" component={(props) => <InternalPageLayout pageTitle="Login"><LoginPage {...props} /></InternalPageLayout>} />
-                <Route path="/skydiving" component={(props) => <SkydivingGame {...props} />} />
-                <Route path="/game" component={(props) => <PlatformGame {...props} />} />
-                <Route path="/stranger-things" component={(props) => <StrangerThings {...props} />} />
-                <PrivateRoute path="/create-invoice" component={(props) => <InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage {...props} /></InternalPageLayout>} />
-            </Router>
-        </>
-    );
-};
+const App = () => 
+    <SocketContext.Provider value={socket}>
+        <Helmet>
+            <link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat&display=swap" rel="stylesheet"></link>
+        </Helmet>
+        <Router>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/login" component={(props) => <InternalPageLayout pageTitle="Login"><LoginPage {...props} /></InternalPageLayout>} />
+            <Route path="/skydiving" component={(props) => <SkydivingGame {...props} />} />
+            <Route path="/game" component={(props) => <PlatformGame {...props} />} />
+            <Route path="/stranger-things" component={(props) => <StrangerThings {...props} />} />
+            <PrivateRoute path="/create-invoice" component={(props) => <InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage {...props} /></InternalPageLayout>} />
+        </Router>
+    </SocketContext.Provider>;
 
-function PrivateRoute({ component: Component, ...rest }) {
+function PrivateRoute({component: Component, ...rest}) {
     return (
         <Route
             {...rest}
