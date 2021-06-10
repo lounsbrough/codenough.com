@@ -16,18 +16,18 @@ const StrangerThings = () => {
     const roomId = searchParams.get('roomId');
 
     React.useEffect(() => {
-        socket.emit('join-room', roomId);
+        socket.emit('join-room', roomId, (newLetterStates) => {
+            setLetterStates(newLetterStates);
+        });
 
-        socket.on('letter-state-change', (newLetterStates) => {
-            console.log(letterStates);
-    
+        socket.on('letter-state-change', (newLetterStates) => {    
             setLetterStates(newLetterStates);
         });
     
         return () => {
             socket.off('letter-state-change');
         };
-    }, [roomId, socket, letterStates]);
+    }, [roomId, socket]);
 
     if (!roomId) {
         window.location.replace(`${window.location.href}?roomId=${uuidv4()}`);
