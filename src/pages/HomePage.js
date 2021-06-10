@@ -8,6 +8,7 @@ import Logo from '../components/logo/Logo';
 import Letters from '../components/logo/Letters';
 import Proficiencies from '../components/Proficiencies';
 import Testimonials from '../components/Testimonials';
+import StrangerThingsAdidasLogo from '../components/stranger-things/StrangerThingsAdidasLogo';
 
 class HomePage extends React.Component {
     constructor(props, context) {
@@ -161,6 +162,13 @@ class HomePage extends React.Component {
                     >
                         <FontAwesomeIcon icon="cloud" />
                     </Button>}
+                    <Button
+                        color="primary"
+                        className="btn-circle btn-float-bottom-left"
+                        onClick={() => window.open("/stranger-things")}
+                    >
+                        <StrangerThingsAdidasLogo height="50" width="50" />
+                    </Button>
                     <Button
                         color="primary"
                         className="btn-circle btn-float-bottom-right"
