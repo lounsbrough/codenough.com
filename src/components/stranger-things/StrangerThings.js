@@ -1,8 +1,13 @@
 import React from 'react';
-import {v4 as uuidv4} from 'uuid';
+import ShortUniqueId  from 'short-unique-id';
 import SocketContext from '../../socket';
 import LightsWallSvg from './LightsWallSvg';
 import lightBulbConfigs from '../../data/light-bulb-configs.json';
+
+const uid = new ShortUniqueId({
+    length: 6,
+    dictionary: 'alphanum_upper'
+});
 
 const StrangerThings = () => {
     const [letterStates, setLetterStates] = React.useState(lightBulbConfigs.map((config) => ({
@@ -30,7 +35,7 @@ const StrangerThings = () => {
     }, [roomId, socket]);
 
     if (!roomId) {
-        window.location.replace(`${window.location.href}?roomId=${uuidv4()}`);
+        window.location.replace(`${window.location.protocol}//${window.location.host}${window.location.pathname}?roomId=${uid.randomUUID()}`);
         
         return;
     }
