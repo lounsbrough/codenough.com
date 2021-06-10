@@ -8,6 +8,12 @@
     }
 
     .light-bulb-svg {
-        transform: scale(1.0);
+        transform: scale(2.0);
+    }
+    
+    @media screen and (max-width: 767px) {
+        .light-bulb-svg {
+            transform: scale(3.0);
+        }
     }
 }
