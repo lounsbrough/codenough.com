@@ -30,6 +30,7 @@ const LightsWallSvg = (props) => {
                 <LightBulbSvgPath
                     key={lightBulbConfig.letter}
                     coordinates={lightBulbConfig.pathCoordinates}
+                    transformOrigin={lightBulbConfig.transformOrigin}
                     hexColor={lightBulbConfig.hexColor}
                     on={props.letterStates.find((letterState) => letterState.letter === lightBulbConfig.letter).on}
                     clickHandler={() => {

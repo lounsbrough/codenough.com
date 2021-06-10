@@ -10,14 +10,15 @@ const hexToRgb = (hex) => {
     } : null
 };
 
-const LightBulbSvgPath = ({coordinates, hexColor, on, clickHandler}) => {
+const LightBulbSvgPath = ({transformOrigin, coordinates, hexColor, on, clickHandler}) => {
     const rgb = hexToRgb(hexColor);
 
     return (
         <path
-            style={{cursor: 'pointer'}}
+            style={{cursor: 'pointer', transformOrigin}}
+            className="light-bulb-svg"
             d={coordinates}
-            fill={`rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${on ? 1 : 0.15})`}
+            fill={`rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${on ? 0.85 : 0.25})`}
             stroke={`rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${on ? 1 : 0.9})`}
             strokeWidth={on ? 1 : 0.056}
             filter="url(#blurred_border)"
