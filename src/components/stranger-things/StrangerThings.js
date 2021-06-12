@@ -9,6 +9,8 @@ const uid = new ShortUniqueId({
     dictionary: 'alphanum_upper'
 });
 
+const letterStateChangeSocketEvent = 'letter-state-change';
+
 const StrangerThings = () => {
     const [letterStates, setLetterStates] = React.useState(lightBulbConfigs.map((config) => ({
         letter: config.letter,
@@ -27,12 +29,12 @@ const StrangerThings = () => {
             });
         });
 
-        socket.on('letter-state-change', (newLetterStates) => {
+        socket.on(letterStateChangeSocketEvent, (newLetterStates) => {
             setLetterStates(newLetterStates);
         });
 
         return () => {
-            socket.off('letter-state-change');
+            socket.off(letterStateChangeSocketEvent);
         };
     }, [roomId, socket]);
 
