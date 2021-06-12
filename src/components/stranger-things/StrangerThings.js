@@ -21,14 +21,16 @@ const StrangerThings = () => {
     const roomId = searchParams.get('roomId');
 
     React.useEffect(() => {
-        socket.emit('join-room', roomId, (newLetterStates) => {
+        socket.on('connect', () => {
+            socket.emit('join-room', roomId, (newLetterStates) => {
+                setLetterStates(newLetterStates);
+            });
+        });
+
+        socket.on('letter-state-change', (newLetterStates) => {
             setLetterStates(newLetterStates);
         });
 
-        socket.on('letter-state-change', (newLetterStates) => {    
-            setLetterStates(newLetterStates);
-        });
-    
         return () => {
             socket.off('letter-state-change');
         };
@@ -36,7 +38,7 @@ const StrangerThings = () => {
 
     if (!roomId) {
         window.location.replace(`${window.location.protocol}//${window.location.host}${window.location.pathname}?roomId=${uid.randomUUID()}`);
-        
+
         return;
     }
 
@@ -50,7 +52,7 @@ const StrangerThings = () => {
                     newLetterStates.find((letterState) => letterState.letter === letter).on = on;
 
                     setLetterStates([...newLetterStates]);
-                    
+
                     socket.emit('light-state-change', {
                         letter,
                         on
