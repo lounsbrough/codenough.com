@@ -19,7 +19,7 @@ const LightBulbSvgPath = ({transformOrigin, coordinates, hexColor, on, clickHand
             className="light-bulb-svg"
             d={coordinates}
             fill={`rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${on ? 0.85 : 0.25})`}
-            stroke={`rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${on ? 1 : 0.9})`}
+            stroke={`rgba(${rgb.red}, ${rgb.green}, ${rgb.blue}, ${on ? 1 : 1})`}
             strokeWidth={on ? 1 : 0.056}
             filter="url(#blurred_border)"
             onClick={() => clickHandler()}
