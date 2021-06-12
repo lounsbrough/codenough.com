@@ -13,19 +13,19 @@ const letterStateChangeSocketEvent = 'letter-state-change';
 const joinRoomSocketEvent = 'join-room';
 
 const StrangerThings = () => {
+    const socket = React.useContext(SocketContext);
+
     const [letterStates, setLetterStates] = React.useState(lightBulbConfigs.map((config) => ({
         letter: config.letter,
         on: false
     })));
-
-    const socket = React.useContext(SocketContext);
 
     const searchParams = new URLSearchParams(window.location.search);
     const roomId = searchParams.get('roomId');
 
     React.useEffect(() => {
         socket.on('connect', () => {
-            socket.emit(joinRoomSocketEvent, roomId, (newLetterStates) => {
+            roomId && socket.emit(joinRoomSocketEvent, roomId, (newLetterStates) => {
                 setLetterStates(newLetterStates);
             });
         });
