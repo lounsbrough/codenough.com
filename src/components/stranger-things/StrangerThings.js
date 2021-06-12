@@ -10,6 +10,7 @@ const uid = new ShortUniqueId({
 });
 
 const letterStateChangeSocketEvent = 'letter-state-change';
+const joinRoomSocketEvent = 'join-room';
 
 const StrangerThings = () => {
     const [letterStates, setLetterStates] = React.useState(lightBulbConfigs.map((config) => ({
@@ -24,7 +25,7 @@ const StrangerThings = () => {
 
     React.useEffect(() => {
         socket.on('connect', () => {
-            socket.emit('join-room', roomId, (newLetterStates) => {
+            socket.emit(joinRoomSocketEvent, roomId, (newLetterStates) => {
                 setLetterStates(newLetterStates);
             });
         });
