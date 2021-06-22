@@ -56,7 +56,7 @@ const StrangerThings = () => {
 
                     setLetterStates([...newLetterStates]);
 
-                    socket.emit('light-state-change', {
+                    socket.emit(letterStateChangeSocketEvent, {
                         letter,
                         on
                     });
