@@ -85,7 +85,7 @@ export const getTimeEntries = async (workspaceId, userId, startDate, endDate, hy
     startDate = moment(startDate).toISOString();
     endDate = moment(endDate).add(1, 'days').toISOString();
 
-    const endpoint = `${baseUri}/workspaces/${workspaceId}/user/${userId}/time-entries?hydrated=${hydrated}&page-size=100000&start=${startDate}&end=${endDate}`;
+    const endpoint = `${baseUri}/workspaces/${workspaceId}/user/${userId}/time-entries?hydrated=${hydrated}&page-size=5000&start=${startDate}&end=${endDate}`;
 
     const response = await fetchWrapper(endpoint);
 
