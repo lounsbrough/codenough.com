@@ -1,6 +1,6 @@
 import React from 'react';
 import ShortUniqueId  from 'short-unique-id';
-import SocketContext from '../../socket';
+import StrangerThingsSocketContext from '../../contexts/StrangerThingsSocketContext';
 import LightsWallSvg from './LightsWallSvg';
 import lightBulbConfigs from '../../data/light-bulb-configs.json';
 
@@ -13,7 +13,7 @@ const letterStateChangeSocketEvent = 'letter-state-change';
 const joinRoomSocketEvent = 'join-room';
 
 const StrangerThings = () => {
-    const socket = React.useContext(SocketContext);
+    const socket = React.useContext(StrangerThingsSocketContext);
 
     const [letterStates, setLetterStates] = React.useState(lightBulbConfigs.map((config) => ({
         letter: config.letter,

@@ -9,7 +9,7 @@ import {
 import {library} from '@fortawesome/fontawesome-svg-core';
 import {faArrowDown, faCloud} from '@fortawesome/free-solid-svg-icons';
 
-import SocketContext, {socket} from './socket';
+import StrangerThingsSocketContext, {StrangerThingsSocket} from './contexts/StrangerThingsSocketContext';
 import InternalPageLayout from './components/InternalPageLayout';
 import LoginPage from './pages/LoginPage';
 import HomePage from './pages/HomePage';
@@ -20,8 +20,8 @@ import StrangerThings from './components/stranger-things/StrangerThings';
 
 library.add(faArrowDown, faCloud);
 
-const App = () => 
-    <SocketContext.Provider value={socket}>
+const App = () =>
+    <StrangerThingsSocketContext.Provider value={StrangerThingsSocket}>
         <Helmet>
             <link href="https://fonts.googleapis.com/css?family=Roboto|Montserrat&display=swap" rel="stylesheet"></link>
         </Helmet>
@@ -33,7 +33,7 @@ const App = () =>
             <Route path="/stranger-things" component={(props) => <StrangerThings {...props} />} />
             <PrivateRoute path="/create-invoice" component={(props) => <InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage {...props} /></InternalPageLayout>} />
         </Router>
-    </SocketContext.Provider>;
+    </StrangerThingsSocketContext.Provider>;
 
 function PrivateRoute({component: Component, ...rest}) {
     return (
