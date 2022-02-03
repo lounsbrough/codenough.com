@@ -95,6 +95,7 @@ class HomePage extends React.Component {
 
         return scheme.from_hue(this.state.hue)
             .scheme('analogic')
+            .distance(0)
             .variation('default')
             .colors();
     }
