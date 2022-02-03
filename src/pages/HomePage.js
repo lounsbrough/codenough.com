@@ -51,6 +51,8 @@ class HomePage extends React.Component {
 
         document.querySelector('.app').style.backgroundColor = "#1ccbd2";
 
+        document.querySelectorAll('.btn-circle').forEach(circleButton => circleButton.classList.remove('btn-circle-dark'));
+
         const favicon = this.getFaviconElement();
 
         favicon.href = this.state.defaultFaviconHref;
@@ -69,6 +71,8 @@ class HomePage extends React.Component {
             });
 
             document.querySelector('.app').style.backgroundColor = "#00141A";
+
+            document.querySelectorAll('.btn-circle').forEach(circleButton => circleButton.classList.add('btn-circle-dark'));
 
             this.paintLogoOntoFavicon();
         }
