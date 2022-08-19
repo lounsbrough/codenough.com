@@ -1,4 +1,4 @@
-name: Auto Merge Minor Dependabot Updates
+name: Auto Merge Dependabot Updates
 
 on: pull_request_target
 
@@ -7,7 +7,7 @@ permissions:
   contents: write
 
 jobs:
-  auto-merge-minor-dependabot-updates:
+  auto-merge-dependabot-updates:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
@@ -16,15 +16,21 @@ jobs:
         uses: dependabot/fetch-metadata@v1.3.3
         with:
           github-token: "${{ secrets.DEPENDABOT_AUTO_MERGE_GITHUB_TOKEN }}"
-      - name: Approve
+      - name: Approve Minor
         if: ${{ steps.dependabot-metadata.outputs.update-type != 'version-update:semver-major' }}
         run: gh pr review --approve "$PR_URL"
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{ secrets.DEPENDABOT_AUTO_MERGE_GITHUB_TOKEN }}
-      - name: Enable auto-merge
+      - name: Enable auto-merge Minor
         if: ${{ steps.dependabot-metadata.outputs.update-type != 'version-update:semver-major' }}
         run: gh pr merge --auto --squash "$PR_URL"
+        env:
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          GITHUB_TOKEN: ${{ secrets.DEPENDABOT_AUTO_MERGE_GITHUB_TOKEN }}
+      - name: Request Review Major
+        if: ${{ steps.dependabot-metadata.outputs.update-type == 'version-update:semver-major' }}
+        run: gh pr edit "$PR_URL" --add-reviewer @lounsbrough
         env:
           PR_URL: ${{ github.event.pull_request.html_url }}
           GITHUB_TOKEN: ${{ secrets.DEPENDABOT_AUTO_MERGE_GITHUB_TOKEN }}
