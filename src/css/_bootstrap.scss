@@ -14,13 +14,13 @@ $theme-colors: (
     text-align: center;
     font-size: 32px;
     line-height: 1;
-    box-shadow: lighten(theme-color("primary"), 10%) 0px 0px 7px 2px;
-    background-color: rgba(theme-color("secondary"), 0);
+    box-shadow: lighten(map-get($theme-colors, "primary"), 10%) 0px 0px 7px 2px;
+    background-color: rgba(map-get($theme-colors, "secondary"), 0);
     transition: all .5s ease-in-out;
 
     &:focus {
-        box-shadow: lighten(theme-color("primary"), 10%) 0px 0px 7px 2px;
-        background-color: rgba(theme-color("secondary"), 0);
+        box-shadow: lighten(map-get($theme-colors, "primary"), 10%) 0px 0px 7px 2px;
+        background-color: rgba(map-get($theme-colors, "secondary"), 0);
     }
 
     &:hover {
@@ -30,11 +30,11 @@ $theme-colors: (
 
 .btn-circle-dark {
     box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 7px 2px;
-    background-color: rgba(theme-color("secondary"), 0);
+    background-color: rgba(map-get($theme-colors, "secondary"), 0);
 
     &:focus {
         box-shadow: rgba(255, 255, 255, 0.25) 0px 0px 7px 2px;
-        background-color: rgba(theme-color("secondary"), 0);
+        background-color: rgba(map-get($theme-colors, "secondary"), 0);
     }
 }
 

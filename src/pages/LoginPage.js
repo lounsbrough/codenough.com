@@ -1,7 +1,7 @@
 import React from 'react';
 import netlifyIdentity from 'netlify-identity-widget';
 import {
-    Redirect
+    Navigate
 } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
@@ -37,7 +37,7 @@ class LoginPage extends React.Component {
         const { from } = this.props.location.state || { from: { pathname: '/' } };
         const { redirectToReferrer } = this.state;
 
-        if (redirectToReferrer) return <Redirect to={from} />;
+        if (redirectToReferrer) return <Navigate to={from} />;
 
         return (
             <div>
