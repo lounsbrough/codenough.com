@@ -1,44 +1,53 @@
-import React from 'react';
+import React, {useCallback, useState} from 'react';
 import {Progress} from 'reactstrap';
-import Unity, {UnityContent} from 'react-unity-webgl';
+import {Unity, useUnityContext} from 'react-unity-webgl';
 
-const minimumProgress = 5;
+function SkydivingGame() {
+    const {unityProvider, loadingProgression, isLoaded} = useUnityContext({
+        loaderUrl: "skydiving-game/Build/skydiving-game.loader.js",
+        dataUrl: "skydiving-game/Build/skydiving-game.data",
+        frameworkUrl: "skydiving-game/Build/skydiving-game.framework.js",
+        codeUrl: "skydiving-game/Build/skydiving-game.wasm",
+    });
 
-class SkydivingGame extends React.Component {
-    constructor(props) {
-        super(props);
+    const [devicePixelRatio, setDevicePixelRatio] = useState(window.devicePixelRatio);
 
-        this.state = {
-            loadingProgress: minimumProgress,
-            isLoading: true
+    useCallback(() => {
+        const updateDevicePixelRatio = function () {
+            setDevicePixelRatio(window.devicePixelRatio);
         };
 
-        this.unityContent = new UnityContent(
-            'skydiving-game/Build/skydiving-game.json',
-            'skydiving-game/Build/UnityLoader.js'
+        const mediaMatcher = window.matchMedia(
+            `screen and (resolution: ${devicePixelRatio}dppx)`
         );
 
-        this.unityContent.on("progress", progress => {
-            this.setState({
-                loadingProgress: Math.max(minimumProgress, progress * 100)
-            });
-        });
+        mediaMatcher.addEventListener("change", updateDevicePixelRatio);
 
-        this.unityContent.on("loaded", () => {
-            this.setState({
-                isLoading: false
-            });
-        });
-    }
+        return function () {
+            mediaMatcher.removeEventListener("change", updateDevicePixelRatio);
+        };
+    }, [devicePixelRatio]);
 
-    render() {
-        return (
-            <>
-                {this.state.isLoading && <Progress animated color="success" value={this.state.loadingProgress} />}
-                <Unity unityContent={this.unityContent} />
-            </>
-        );
-    }
+    const loadingPercentage = Math.round(loadingProgression * 100);
+
+    return (
+        <>
+            {!isLoaded &&
+                <Progress
+                    animated
+                    color="success"
+                    value={loadingPercentage}
+                    style={{height: '50px'}}
+                >
+                    <span style={{fontSize: '32px', fontWeight: 'bold'}}>{`${loadingPercentage}%`}</span>
+                </Progress>}
+            <Unity
+                unityProvider={unityProvider}
+                style={{width: '100vw', height: '100vh', visibility: isLoaded ? "visible" : "hidden"}}
+                devicePixelRatio={devicePixelRatio}
+            />
+        </>
+    );
 }
 
 export default SkydivingGame;

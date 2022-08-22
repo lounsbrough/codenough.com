@@ -2,6 +2,7 @@ import React from 'react';
 import Matercolor from 'matercolors';
 import {Button} from 'reactstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
+import {isMobile} from 'react-device-detect';
 
 import Logo from '../components/logo/Logo';
 import Letters from '../components/logo/Letters';
@@ -160,6 +161,13 @@ class HomePage extends React.Component {
                     >
                         <Logo className="logo" format="fillWhite" height="30" width="30" />
                     </Button>
+                    {!isMobile && <Button
+                        color="primary"
+                        className="btn-circle btn-float-top-right"
+                        onClick={() => window.open("/skydiving")}
+                    >
+                        <FontAwesomeIcon icon="cloud" />
+                    </Button>}
                     <Button
                         color="primary"
                         className="btn-circle btn-float-bottom-left"
