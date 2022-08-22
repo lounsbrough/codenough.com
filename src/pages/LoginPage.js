@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import netlifyIdentity from 'netlify-identity-widget';
 import {
-    Navigate
+    Navigate,
+    useSearchParams
 } from 'react-router-dom';
 import { Button } from 'reactstrap';
 
@@ -20,32 +21,29 @@ const netlifyAuth = {
     }
 };
 
-class LoginPage extends React.Component {
-    state = {
-        redirectToReferrer: false
-    };
+function LoginPage() {
+    const [searchParams] = useSearchParams();
 
-    login = () => {
+    const redirectTo = searchParams.get('redirect');
+
+    const [redirectToReferrer, setRedirectToReferrer] = useState(false);
+
+    const login = () => {
         netlifyAuth.authenticate(() => {
-            this.setState({
-                redirectToReferrer: true
-            });
+            setRedirectToReferrer(true);
         });
     };
 
-    render() {
-        const { from } = this.props.location.state || { from: { pathname: '/' } };
-        const { redirectToReferrer } = this.state;
-
-        if (redirectToReferrer) return <Navigate to={from} />;
-
-        return (
-            <div>
-                <p>You must log in to view the page at {from.pathname}</p>
-                <Button color="primary" onClick={this.login}>Log in</Button>
-            </div>
-        );
+    if (redirectToReferrer) {
+        return <Navigate to={redirectTo} />;
     }
+
+    return (
+        <div>
+            <p>You must log in to view the page at {redirectTo}</p>
+            <Button color="primary" onClick={login}>Log in</Button>
+        </div>
+    );
 }
 
 export default LoginPage;

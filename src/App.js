@@ -31,29 +31,20 @@ const App = () =>
                 <Route path="/login" element={<InternalPageLayout pageTitle="Login"><LoginPage /></InternalPageLayout>} />
                 <Route path="/skydiving" element={<SkydivingGame />} />
                 <Route path="/stranger-things" element={<StrangerThings />} />
-                <PrivateRoute path="/create-invoice" element={<InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage /></InternalPageLayout>} />
+                <Route path="/create-invoice" element={
+                    <ProtectedRoute redirectPath="/create-invoice">
+                        <InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage /></InternalPageLayout>
+                    </ProtectedRoute>
+                } />
             </Routes>
         </Router>
     </StrangerThingsSocketContext.Provider>;
 
-function PrivateRoute({component: Component, ...rest}) {
-    return (
-        <Route
-            {...rest}
-            render={props =>
-                netlifyIdentity.currentUser() ? (
-                    <Component {...props} />
-                ) : (
-                        <Navigate
-                            to={{
-                                pathname: '/login',
-                                state: { from: props.location }
-                            }}
-                        />
-                    )
-            }
-        />
-    );
-}
+const ProtectedRoute = ({
+    redirectPath,
+    children
+}) => {
+    return netlifyIdentity.currentUser() ? children : <Navigate to={`/login?redirect=${redirectPath}`} replace />;
+};
 
 export default App;
