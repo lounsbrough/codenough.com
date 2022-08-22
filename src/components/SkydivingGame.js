@@ -32,15 +32,12 @@ function SkydivingGame() {
 
     return (
         <>
-            {!isLoaded &&
-                <Progress
-                    animated
-                    color="success"
-                    value={loadingPercentage}
-                    style={{height: '50px'}}
-                >
-                    <span style={{fontSize: '32px', fontWeight: 'bold'}}>{`${loadingPercentage}%`}</span>
-                </Progress>}
+            {!isLoaded && <Progress
+                animated
+                color="success"
+                value={loadingPercentage}
+                style={{height: '32px'}}
+            />}
             <Unity
                 unityProvider={unityProvider}
                 style={{width: '100vw', height: '100vh', visibility: isLoaded ? "visible" : "hidden"}}
