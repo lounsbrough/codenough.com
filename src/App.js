@@ -31,7 +31,7 @@ const App = () =>
                 <Route path="/login" element={<InternalPageLayout pageTitle="Login"><LoginPage /></InternalPageLayout>} />
                 <Route path="/skydiving" element={<SkydivingGame />} />
                 <Route path="/stranger-things" element={<StrangerThings />} />
-                <Route path="/create-invoice" element={<InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage /></InternalPageLayout>} />
+                <PrivateRoute path="/create-invoice" element={<InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage /></InternalPageLayout>} />
             </Routes>
         </Router>
     </StrangerThingsSocketContext.Provider>;
