@@ -65,8 +65,6 @@ class HomePage extends React.Component {
         } else {
             const colorScheme = this.getRandomColorScheme();
 
-            console.log(colorScheme);
-
             const svgPaths = document.querySelectorAll('.app-header svg path');
 
             svgPaths.forEach((svgPath, index) => {
