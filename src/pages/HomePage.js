@@ -1,5 +1,5 @@
 import React from 'react';
-import ColorScheme from 'color-scheme';
+import Matercolor from 'matercolors';
 import {Button} from 'reactstrap';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {isMobile} from 'react-device-detect';
@@ -9,6 +9,7 @@ import Letters from '../components/logo/Letters';
 import Proficiencies from '../components/Proficiencies';
 import Testimonials from '../components/Testimonials';
 import StrangerThingsAdidasLogo from '../components/stranger-things/StrangerThingsAdidasLogo';
+import {HSLToHex} from '../utils/color-functions';
 
 class HomePage extends React.Component {
     constructor(props, context) {
@@ -67,7 +68,7 @@ class HomePage extends React.Component {
             const svgPaths = document.querySelectorAll('.app-header svg path');
 
             svgPaths.forEach((svgPath, index) => {
-                svgPath.style.fill = `#${colorScheme[index % 12]}`;
+                svgPath.style.fill = `${colorScheme[index % colorScheme.length]}`;
             });
 
             document.querySelector('.app').style.backgroundColor = "#00141A";
@@ -77,7 +78,7 @@ class HomePage extends React.Component {
             this.paintLogoOntoFavicon();
         }
 
-        setTimeout(() => this.randomColorShow(), 20);
+        setTimeout(() => this.randomColorShow(), 200);
     }
 
     toggleColorShow() {
@@ -87,17 +88,15 @@ class HomePage extends React.Component {
     }
 
     getRandomColorScheme() {
-        var scheme = new ColorScheme();
+        const newHue = (this.state.hue + 1) % 360;
 
         this.setState({
-            hue: this.state.hue + 1 % 360
+            hue: newHue
         });
 
-        return scheme.from_hue(this.state.hue)
-            .scheme('analogic')
-            .distance(0)
-            .variation('default')
-            .colors();
+        const colorScheme = new Matercolor(HSLToHex([newHue, 100, 50]));
+
+        return Object.values(colorScheme.palette.primary);
     }
 
     paintLogoOntoFavicon() {
