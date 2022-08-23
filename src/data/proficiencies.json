@@ -114,6 +114,12 @@
         "url": "https://cloud.google.com/"
     },
     {
+        "title": "GraphQL",
+        "componentName": "GraphQLSvg",
+        "color": "#E10098",
+        "url": "https://graphql.org/"
+    },
+    {
         "title": "Gulp",
         "componentName": "GulpSvg",
         "color": "#DA4648",
