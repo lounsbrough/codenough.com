@@ -1,5 +1,11 @@
 [
     {
+        "title": "Amazon Web Services",
+        "componentName": "AmazonWebServicesSvg",
+        "color": "#232F3E",
+        "url": "https://aws.amazon.com/"
+    },
+    {
         "title": "Android",
         "componentName": "AndroidSvg",
         "color": "#3DDC84",
