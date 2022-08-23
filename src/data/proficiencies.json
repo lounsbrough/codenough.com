@@ -1,5 +1,11 @@
 [
     {
+        "title": "Amazon Web Services",
+        "componentName": "AmazonWebServicesSvg",
+        "color": "#232F3E",
+        "url": "https://aws.amazon.com/"
+    },
+    {
         "title": "Android",
         "componentName": "AndroidSvg",
         "color": "#3DDC84",
@@ -112,6 +118,12 @@
         "componentName": "GoogleCloudSvg",
         "color": "#4285F4",
         "url": "https://cloud.google.com/"
+    },
+    {
+        "title": "GraphQL",
+        "componentName": "GraphQLSvg",
+        "color": "#E10098",
+        "url": "https://graphql.org/"
     },
     {
         "title": "Gulp",
