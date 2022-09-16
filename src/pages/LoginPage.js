@@ -30,11 +30,13 @@ function LoginPage() {
 
     const login = () => {
         netlifyAuth.authenticate(() => {
+            console.log('User authenticated, will redirect');
             setRedirectToReferrer(true);
         });
     };
 
     if (redirectToReferrer) {
+        console.log('Redirecting now');
         return <Navigate to={redirectTo} />;
     }
 
