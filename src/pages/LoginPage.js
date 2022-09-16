@@ -22,6 +22,8 @@ const netlifyAuth = {
 };
 
 function LoginPage() {
+    const loggedInUser = netlifyIdentity.currentUser();
+    
     const [searchParams] = useSearchParams();
 
     const redirectTo = searchParams.get('redirect') ?? '/create-invoice';
@@ -35,7 +37,7 @@ function LoginPage() {
         });
     };
 
-    if (redirectToReferrer) {
+    if (loggedInUser && redirectToReferrer) {
         console.log('Redirecting now');
         return <Navigate to={redirectTo} />;
     }
