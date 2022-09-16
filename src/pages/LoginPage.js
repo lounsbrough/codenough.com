@@ -22,7 +22,8 @@ const netlifyAuth = {
 };
 
 function LoginPage() {
-    const loggedInUser = netlifyIdentity.currentUser();
+    const loggedInUser = netlifyIdentity.currentUser();    
+    console.log(loggedInUser);
     
     const [searchParams] = useSearchParams();
 
