@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import netlifyIdentity from 'netlify-identity-widget';
 import {
-    Navigate,
+    useNavigate,
     useSearchParams
 } from 'react-router-dom';
 import { Button } from 'reactstrap';
@@ -25,6 +25,7 @@ function LoginPage() {
     const loggedInUser = netlifyIdentity.currentUser();    
     console.log(loggedInUser);
     
+    const navigate = useNavigate();
     const [searchParams] = useSearchParams();
 
     const redirectTo = searchParams.get('redirect') ?? '/create-invoice';
@@ -39,8 +40,15 @@ function LoginPage() {
     };
 
     if (loggedInUser || redirectToReferrer) {
-        console.log('Redirecting now');
-        return <Navigate to={redirectTo} />;
+        setTimeout(() => {
+            navigate(redirectTo);
+        }, 1000);
+        
+        return (
+            <div>
+                <p>Redirecting...</p>
+            </div>
+        );
     }
 
     return (
