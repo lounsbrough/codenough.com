@@ -37,7 +37,7 @@ function LoginPage() {
         });
     };
 
-    if (loggedInUser && redirectToReferrer) {
+    if (loggedInUser || redirectToReferrer) {
         console.log('Redirecting now');
         return <Navigate to={redirectTo} />;
     }
