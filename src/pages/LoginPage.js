@@ -24,7 +24,7 @@ const netlifyAuth = {
 function LoginPage() {
     const [searchParams] = useSearchParams();
 
-    const redirectTo = searchParams.get('redirect');
+    const redirectTo = searchParams.get('redirect') ?? '/create-invoice';
 
     const [redirectToReferrer, setRedirectToReferrer] = useState(false);
 
@@ -40,7 +40,7 @@ function LoginPage() {
 
     return (
         <div>
-            <p>You must log in to view the page at {redirectTo}</p>
+            <p>You must log in to see internal pages</p>
             <Button color="primary" onClick={login}>Log in</Button>
         </div>
     );
