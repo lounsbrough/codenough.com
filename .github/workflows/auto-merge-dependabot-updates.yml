@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     if: ${{ github.actor == 'dependabot[bot]' }}
     steps:
+      - name: Sleep for 15 minutes
+        run: sleep 900
+        shell: bash
       - name: Dependabot metadata
         id: dependabot-metadata
         uses: dependabot/fetch-metadata@v1.3.3
