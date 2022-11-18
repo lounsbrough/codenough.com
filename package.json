@@ -16,7 +16,7 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.4.3",
     "react-scripts": "^5.0.1",
-    "react-unity-webgl": "^9.2.1",
+    "react-unity-webgl": "^9.3.0",
     "reactstrap": "^9.1.5",
     "sass": "^1.56.1",
     "short-unique-id": "^4.4.4",
