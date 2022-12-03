@@ -5,8 +5,8 @@ import InternalFooter from './InternalFooter';
 
 const InternalPageLayout = (props) =>
     <>
-        <InternalHeader />
-        <h2 className="page-title">{props.pageTitle}</h2>
+        <InternalHeader showNavigation={props.showNavigation} />
+        <h2 className="page-title no-print">{props.pageTitle}</h2>
         <div className="layout-container-main">
             {props.children}
         </div>

@@ -3,11 +3,11 @@ $body-background-color: #f7f7f5;
 $site-primary-color: #006680;
 $site-accent-color: #1ccbd2;
 
-$site-header-background-color: darken($site-primary-color, 20%);
-$site-header-text-color: #ffffff;
+$site-header-background-color: #ffffff;
+$site-header-text-color: $site-primary-color;
 
 $site-footer-background-color: $site-primary-color;
 $site-footer-text-color: #ffffff;
 
-$page-title-background-color: darken($site-primary-color, 20%);
-$page-title-text-color: white;
+$page-title-background-color: #ffffff;
+$page-title-text-color: $site-primary-color;

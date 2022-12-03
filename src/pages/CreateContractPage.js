@@ -2,7 +2,7 @@ import React, {useEffect, useState} from 'react';
 import {Button, Col, Container, FormGroup, Input, Label, Row} from 'reactstrap';
 import Logo from '../components/logo/Logo';
 
-const contractorName = 'Codenough LLC';
+const contractorName = 'CODENOUGH LLC';
 const contractorOfficerName = 'David Lounsbrough';
 const contractorAddress = '3006 NE 17th St, Ankeny, IA 50021, USA';
 
@@ -26,7 +26,7 @@ const getNumberWithSuffix = (i) => {
 const getFormalDate = (date) =>
     `${getNumberWithSuffix(date.getDate())} day of ${date.toLocaleString('default', {month: 'long'})}, ${date.getFullYear()}`
 
-function ContractGeneratorPage() {
+function CreateContractPage() {
     const [clientName, setClientName] = useState('bob');
     const [clientAddress, setClientAddress] = useState('somewhere');
 
@@ -41,7 +41,18 @@ function ContractGeneratorPage() {
     return (
         <>
             <div className="no-print" style={{paddingTop: '50px', paddingLeft: '20%', paddingRight: '20%'}}>
-                <h3>Fill out the form below and then click "Print Contract"</h3>
+                <h5>
+                    Here's what you need to do to start a contract:
+                </h5>
+                <ol>
+                    <li>Fill out the form below</li>
+                    <li>Print and sign the form
+                        <ul>
+                            <li>Print as PDF and sign digitally, or print on paper and scan</li>
+                        </ul>
+                    </li>
+                    <li>Return signed form to {contractorName}</li>
+                </ol>
                 <FormGroup>
                     <Label for="clientName">Client Name</Label>
                     <Input required name="clientName" value={clientName} onChange={(event) => setClientName(event.target.value)} />
@@ -350,11 +361,11 @@ function ContractGeneratorPage() {
                         <p><strong>IN WITNESS WHEREOF</strong> the Parties have duly affixed their signatures on this {getFormalDate(currentDate)}.
                         </p>
                         <div>
-                            <div>
+                            <div style={{margin: '20px auto'}}>
                                 <div>_______________________________</div>
                                 <div>{clientName}</div>
                             </div>
-                            <div>
+                            <div style={{margin: '20px auto'}}>
                                 <div>_______________________________</div>
                                 <div>
                                     {contractorName}
@@ -365,11 +376,10 @@ function ContractGeneratorPage() {
                             </div>
                         </div>
                     </div>
-                    <span>{documentTitle}</span>
                 </div>
             </div>
         </>
     );
 }
 
-export default ContractGeneratorPage;
+export default CreateContractPage;
