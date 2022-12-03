@@ -18,6 +18,7 @@ import CreateInvoicePage from './pages/CreateInvoicePage';
 import CreateContractPage from './pages/CreateContractPage';
 import SkydivingGame from './components/SkydivingGame';
 import StrangerThings from './components/stranger-things/StrangerThings';
+import CreateContractPage from './pages/CreateContractPage';
 
 library.add(faArrowDown, faCloud);
 
