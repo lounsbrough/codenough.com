@@ -17,6 +17,7 @@ import HomePage from './pages/HomePage';
 import CreateInvoicePage from './pages/CreateInvoicePage';
 import SkydivingGame from './components/SkydivingGame';
 import StrangerThings from './components/stranger-things/StrangerThings';
+import ContractGeneratorPage from './pages/ContractGeneratorPage';
 
 library.add(faArrowDown, faCloud);
 
@@ -36,6 +37,7 @@ const App = () =>
                         <InternalPageLayout pageTitle="Create Invoices"><CreateInvoicePage /></InternalPageLayout>
                     </ProtectedRoute>
                 } />
+                <Route path="/generate-contract" element={<ContractGeneratorPage />} />
             </Routes>
         </Router>
     </StrangerThingsSocketContext.Provider>;
