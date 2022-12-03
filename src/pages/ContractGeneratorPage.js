@@ -40,7 +40,7 @@ function ContractGeneratorPage() {
 
     return (
         <>
-            <div className="no-print" style={{padding: '50px'}}>
+            <div className="no-print" style={{paddingTop: '50px', paddingLeft: '20%', paddingRight: '20%'}}>
                 <h3>Fill out the form below and then click "Print Contract"</h3>
                 <FormGroup>
                     <Label for="clientName">Client Name</Label>
