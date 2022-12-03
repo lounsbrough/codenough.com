@@ -34,7 +34,7 @@ const App = () =>
                 <Route path="/stranger-things" element={<StrangerThings />} />
                 <Route path="/create-invoice" element={
                     <ProtectedRoute redirectPath="/create-invoice">
-                        <InternalPageLayout showNavigation pageTitle="Create Invoice"><CreateInvoicePage /></InternalPageLayout>
+                        <InternalPageLayout pageTitle="Create Invoice"><CreateInvoicePage /></InternalPageLayout>
                     </ProtectedRoute>
                 } />
                 <Route path="/create-contract" element={<InternalPageLayout pageTitle="Create Contract"><CreateContractPage /></InternalPageLayout>} />

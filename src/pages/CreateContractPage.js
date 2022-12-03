@@ -4,6 +4,7 @@ import Logo from '../components/logo/Logo';
 
 const contractorName = 'CODENOUGH LLC';
 const contractorOfficerName = 'David Lounsbrough';
+const contractorEmail = 'contracts@codenough.com';
 const contractorAddress = '3006 NE 17th St, Ankeny, IA 50021, USA';
 
 const documentTitle = `${contractorName} Contract Agreement`;
@@ -51,7 +52,7 @@ function CreateContractPage() {
                             <li>Print as PDF and sign digitally, or print on paper and scan</li>
                         </ul>
                     </li>
-                    <li>Return signed form to {contractorName}</li>
+                    <li>Return signed form to <a href={`mailto: ${contractorEmail}`}>{contractorEmail}</a></li>
                 </ol>
                 <FormGroup>
                     <Label for="clientName">Client Name</Label>

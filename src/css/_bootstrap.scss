@@ -72,3 +72,7 @@ $theme-colors: (
   -webkit-transform: translateX(-200%);
   transform: translateX(-200%);
 }
+
+.navbar > .container-fluid {
+    justify-content: center;
+}
