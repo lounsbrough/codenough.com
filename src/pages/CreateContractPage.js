@@ -28,8 +28,8 @@ const getFormalDate = (date) =>
     `${getNumberWithSuffix(date.getDate())} day of ${date.toLocaleString('default', {month: 'long'})}, ${date.getFullYear()}`
 
 function CreateContractPage() {
-    const [clientName, setClientName] = useState('bob');
-    const [clientAddress, setClientAddress] = useState('somewhere');
+    const [clientName, setClientName] = useState('');
+    const [clientAddress, setClientAddress] = useState('');
 
     useEffect(() => {
         document.title = documentTitle;
@@ -42,7 +42,7 @@ function CreateContractPage() {
     return (
         <>
             <div className="no-print" style={{paddingTop: '50px', paddingLeft: '20%', paddingRight: '20%'}}>
-                <h5>
+                <h5 className='contract-section-heading'>
                     Here's what you need to do to start a contract:
                 </h5>
                 <ol>
@@ -104,8 +104,8 @@ function CreateContractPage() {
                         </Row>
                     </Container>
                     <ol start="1" >
-                        <h3><span>BACKGROUND</span><br />
-                        </h3>
+                        <h5 className='contract-section-heading'><span>BACKGROUND</span><br />
+                        </h5>
                         <li value="1"><span>The</span> Client is of the opinion that the Contractor has the necessary
                             qualifications, experience and abilities to provide services to the Client.<br />
                         </li>
@@ -114,27 +114,27 @@ function CreateContractPage() {
                         </li>
                     </ol>
                     <div>
-                        <p ><strong>IN CONSIDERATION OF</strong> the matters described above and of the
+                        <p><strong>IN CONSIDERATION OF</strong> the matters described above and of the
                             mutual benefits and obligations set forth in this Agreement, the receipt and sufficiency of
                             which consideration is hereby acknowledged, the Client and the Contractor (individually the
                             "Party" and collectively the "Parties" to this Agreement) agree as follows:
                         </p>
                         <ol start="1">
-                            <h3><span>Services Provided</span><strong></strong><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>SERVICES PROVIDED</span><br />
+                            </h5>
                             <li value="1"><span>The</span> Client hereby agrees to engage the Contractor to provide the
                                 Client with the following services (the "Services"):<br />
                                 <ul>
-                                    <li value="1"><span>Provide technical support for software products.</span><br />
+                                    <li value="1"><span>Build, maintain, or support software products.</span><br />
                                     </li>
                                 </ul>
                             </li>
                             <li value="2"><span>The Services will also include any other</span> tasks which the Parties may
                                 agree on. The Contractor hereby agrees to provide such Services to the Client.<br />
                             </li>
-                            <h3><span>Term of </span><strong><u>
-                            </u></strong><strong><u>Agreement</u></strong><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>TERM OF </span><strong><u>
+                            </u></strong><strong><u>AGREEMENT</u></strong><br />
+                            </h5>
                             <li value="3"><span>The term of this</span> Agreement (the "Term") will begin on the date of
                                 this Agreement and will remain in full force and effect indefinitely until terminated as
                                 provided in this Agreement.<br />
@@ -153,18 +153,18 @@ function CreateContractPage() {
                             <li value="7"><span>Except as otherwise provided in this</span> Agreement, the obligations of
                                 the Contractor will end upon the termination of this Agreement.<br />
                             </li>
-                            <h3><span>Performance</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>PERFORMANCE</span><br />
+                            </h5>
                             <li value="8"><span>The Parties agree to do everything necessary to ensure that the terms of
                                 this</span> Agreement take effect.<br />
                             </li>
-                            <h3><span>Currency</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>CURRENCY</span><br />
+                            </h5>
                             <li value="9"><span>Except as otherwise provided in this</span> Agreement, all monetary amounts
                                 referred to in this Agreement are in USD (US Dollars).<br />
                             </li>
-                            <h3><span>Compensation</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>COMPENSATION</span><br />
+                            </h5>
                             <li value="10"><span>The</span> Contractor will charge the Client for the Services at the rate
                                 of $100.00 per hour (the "Compensation").<br />
                             </li>
@@ -176,14 +176,14 @@ function CreateContractPage() {
                             <li value="13"><span>The Contractor will not be reimbursed for any expenses incurred in
                                 connection with providing the Services of this Agreement.</span><br />
                             </li>
-                            <h3><span>Interest on Late Payments</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>INTEREST ON LATE PAYMENTS</span><br />
+                            </h5>
                             <li value="14"><span>Interest payable on any overdue amounts under this Agreement is charged at
                                 a rate of 12.00% per annum or at the maximum rate enforceable under applicable
                                 legislation, whichever is lower.</span><br />
                             </li>
-                            <h3><span>Confidentiality</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>CONFIDENTIALITY</span><br />
+                            </h5>
                             <li value="15"><span>Confidential information (the "Confidential Information") refers to any
                                 data or information relating to the business of the Client which would reasonably be
                                 considered to be proprietary to the Client including, but not limited to, accounting
@@ -197,8 +197,8 @@ function CreateContractPage() {
                                 confidentiality will apply during the Term and will survive indefinitely upon
                                 termination of this Agreement.</span><br />
                             </li>
-                            <h3><span>Ownership of Intellectual Property</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>OWNERSHIP OF INTELLECTUAL PROPERTY</span><br />
+                            </h5>
                             <li value="17"><span>All</span> intellectual property and related material, including any trade
                                 secrets, moral rights, goodwill, relevant registrations or applications for registration,
                                 and rights in any patent, copyright, trademark, trade dress, industrial design and trade
@@ -211,14 +211,14 @@ function CreateContractPage() {
                                 Client. The Contractor will be responsible for any and all damages resulting from the
                                 unauthorized use of the Intellectual Property.<br />
                             </li>
-                            <h3><span>Return of Property</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>RETURN OF PROPERTY</span><br />
+                            </h5>
                             <li value="19"><span>Upon the expiration or termination of this</span> Agreement, the Contractor
                                 will return to the Client any property, documentation, records, or Confidential Information
                                 which is the property of the Client.<br />
                             </li>
-                            <h3><span>Capacity/Independent Contractor</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>CAPACITY/INDEPENDENT CONTRACTOR</span><br />
+                            </h5>
                             <li value="20"><span>In providing the Services under this</span> Agreement it is expressly
                                 agreed that the Contractor is acting as an independent contractor and not as an employee.
                                 The Contractor and the Client acknowledge that this Agreement does not create a partnership
@@ -229,8 +229,8 @@ function CreateContractPage() {
                                 responsible for paying, and complying with reporting requirements for, all local, state and
                                 federal taxes related to payments made to the Contractor under this Agreement.<br />
                             </li>
-                            <h3><span>Right of Substitution</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>RIGHT OF SUBSTITUTION</span><br />
+                            </h5>
                             <li value="21"><span>Except as otherwise provided in this Agreement, the Contractor may, at the
                                 Contractor's absolute discretion, engage a third party sub-contractor to perform some or
                                 all of the obligations of the Contractor under this Agreement and the Client will not
@@ -247,29 +247,29 @@ function CreateContractPage() {
                                     </li>
                                 </ul>
                             </li>
-                            <h3><span>Autonomy</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>AUTONOMY</span><br />
+                            </h5>
                             <li value="23"><span>Except as otherwise provided in this Agreement, the Contractor will have
                                 full control over working time, methods, and decision making in relation to provision of
                                 the Services in accordance with the Agreement. The Contractor will work autonomously and
                                 not at the direction of the Client. However, the Contractor will be responsive to the
                                 reasonable needs and concerns of the Client. </span><br />
                             </li>
-                            <h3><span>Equipment</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>EQUIPMENT</span><br />
+                            </h5>
                             <li value="24"><span>Except as otherwise provided in this Agreement, the Contractor will provide
                                 at the Contractor's own expense, any and all tools, machinery, equipment, raw materials,
                                 supplies, workwear and any other items or parts necessary to deliver the Services in
                                 accordance with the Agreement.</span><br />
                             </li>
-                            <h3><span>No Exclusivity</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>NO EXCLUSIVITY</span><br />
+                            </h5>
                             <li value="25"><span>The Parties acknowledge that this Agreement is non-exclusive and that
                                 either Party will be free, during and after the Term, to engage or contract with third
                                 parties for the provision of services similar to the Services.</span><br />
                             </li>
-                            <h3><span>Notice</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>NOTICE</span><br />
+                            </h5>
                             <li value="26"><span>All notices, requests, demands or other communications required or
                                 permitted by the terms of this</span> Agreement will be given in writing and delivered
                                 to the Parties at the following addresses: <br />
@@ -285,8 +285,8 @@ function CreateContractPage() {
                                     the following day after being deposited with an overnight courier.
                                 </p>
                             </li>
-                            <h3><span>Indemnification</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>INDEMNIFICATION</span><br />
+                            </h5>
                             <li value="27"><span>Except to the extent paid in settlement from any applicable insurance
                                 policies, and to the extent permitted by applicable law, each Party agrees to indemnify
                                 and hold harmless the other Party, and its respective</span> directors, shareholders,
@@ -298,67 +298,67 @@ function CreateContractPage() {
                                 that occurs in connection with this Agreement. This indemnification will survive the
                                 termination of this Agreement.<br />
                             </li>
-                            <h3><span>Modification of </span><strong><u>
-                            </u></strong><strong><u>Agreement</u></strong><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>MODIFICATION OF </span><strong><u>
+                            </u></strong><strong><u>AGREEMENT</u></strong><br />
+                            </h5>
                             <li value="28"><span>Any amendment or modification of this</span> Agreement or additional
                                 obligation assumed by either Party in connection with this Agreement will only be binding if
                                 evidenced in writing signed by each Party or an authorized representative of each Party.<br />
                             </li>
-                            <h3><span>Time of the Essence</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>TIME OF THE ESSENCE</span><br />
+                            </h5>
                             <li value="29"><span>Time is of the essence in this</span> Agreement. No extension or variation
                                 of this Agreement will operate as a waiver of this provision.<br />
                             </li>
-                            <h3><span>Assignment</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>ASSIGNMENT</span><br />
+                            </h5>
                             <li value="30"><span>The</span> Contractor will not voluntarily, or by operation of law, assign
                                 or otherwise transfer its obligations under this Agreement without the prior written consent
                                 of the Client.<br />
                             </li>
-                            <h3><span>Entire Agreement</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>ENTIRE AGREEMENT</span><br />
+                            </h5>
                             <li value="31"><span>It is agreed that there is no representation, warranty, collateral
                                 agreement or condition affecting this</span> Agreement except as expressly provided in
                                 this Agreement.<br />
                             </li>
-                            <h3><span>Enurement</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>ENUREMENT</span><br />
+                            </h5>
                             <li value="32"><span>This</span> Agreement will enure to the benefit of and be binding on the
                                 Parties and their respective heirs, executors, administrators and permitted successors and
                                 assigns.<br />
                             </li>
-                            <h3><span>Titles/Headings</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>TITLES/HEADINGS</span><br />
+                            </h5>
                             <li value="33"><span>Headings are inserted for the convenience of the Parties only and are not
                                 to be considered when interpreting this</span> Agreement.<br />
                             </li>
-                            <h3><span>Gender</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>GENDER</span><br />
+                            </h5>
                             <li value="34"><span>Words in the singular mean and include the plural and vice versa. Words in
                                 the masculine mean and include the feminine and vice versa.</span><br />
                             </li>
-                            <h3><span>Governing Law</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>GOVERNING LAW</span><br />
+                            </h5>
                             <li value="35"><span>This</span> Agreement will be governed by and construed in accordance with
                                 the laws of the State of Iowa.<br />
                             </li>
-                            <h3><span>Severability</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>SEVERABILITY</span><br />
+                            </h5>
                             <li value="36"><span>In the event that any of the provisions of this</span> Agreement are held
                                 to be invalid or unenforceable in whole or in part, all other provisions will nevertheless
                                 continue to be valid and enforceable with the invalid or unenforceable parts severed from
                                 the remainder of this Agreement.<br />
                             </li>
-                            <h3><span>Waiver</span><br />
-                            </h3>
+                            <h5 className='contract-section-heading'><span>WAIVER</span><br />
+                            </h5>
                             <li value="37"><span>The waiver by either Party of a breach, default, delay or omission of any
                                 of the provisions of this</span> Agreement by the other Party will not be construed as a
                                 waiver of any subsequent breach of the same or other provisions.<br />
                             </li>
                         </ol>
                     </div>
-                    <div>
+                    <div style={{marginTop: '70px'}}>
                         <p><strong>IN WITNESS WHEREOF</strong> the Parties have duly affixed their signatures on this {getFormalDate(currentDate)}.
                         </p>
                         <div>
