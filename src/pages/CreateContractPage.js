@@ -52,7 +52,7 @@ function CreateContractPage() {
                             <li>Print as PDF and sign digitally, or print on paper and scan</li>
                         </ul>
                     </li>
-                    <li>Return signed form to <a href={`mailto: ${contractorEmail}`}>{contractorEmail}</a></li>
+                    <li>Return signed form to <a target="_blank " href={`mailto: ${contractorEmail}`} rel="noreferrer">{contractorEmail}</a></li>
                 </ol>
                 <FormGroup>
                     <Label for="clientName">Client Name</Label>
