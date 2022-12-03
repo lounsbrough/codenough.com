@@ -41,7 +41,7 @@ function CreateContractPage() {
 
     return (
         <>
-            <div className="no-print" style={{paddingTop: '50px', paddingLeft: '20%', paddingRight: '20%'}}>
+            <div className="no-print" style={{paddingTop: '25px', paddingLeft: '20%', paddingRight: '20%'}}>
                 <h5 className='contract-section-heading'>
                     Here's what you need to do to start a contract:
                 </h5>
@@ -362,11 +362,11 @@ function CreateContractPage() {
                         <p><strong>IN WITNESS WHEREOF</strong> the Parties have duly affixed their signatures on this {getFormalDate(currentDate)}.
                         </p>
                         <div>
-                            <div style={{margin: '20px auto'}}>
+                            <div style={{margin: '50px auto'}}>
                                 <div>_______________________________</div>
                                 <div>{clientName}</div>
                             </div>
-                            <div style={{margin: '20px auto'}}>
+                            <div style={{margin: '50px auto'}}>
                                 <div>_______________________________</div>
                                 <div>
                                     {contractorName}
