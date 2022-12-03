@@ -41,7 +41,7 @@ function CreateContractPage() {
 
     return (
         <>
-            <div className="no-print" style={{paddingTop: '50px', paddingLeft: '20%', paddingRight: '20%'}}>
+            <div className="no-print" style={{paddingTop: '25px', paddingLeft: '20%', paddingRight: '20%'}}>
                 <h5 className='contract-section-heading'>
                     Here's what you need to do to start a contract:
                 </h5>
