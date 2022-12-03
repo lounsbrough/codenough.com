@@ -362,11 +362,11 @@ function CreateContractPage() {
                         <p><strong>IN WITNESS WHEREOF</strong> the Parties have duly affixed their signatures on this {getFormalDate(currentDate)}.
                         </p>
                         <div>
-                            <div style={{margin: '20px auto'}}>
+                            <div style={{margin: '50px auto'}}>
                                 <div>_______________________________</div>
                                 <div>{clientName}</div>
                             </div>
-                            <div style={{margin: '20px auto'}}>
+                            <div style={{margin: '50px auto'}}>
                                 <div>_______________________________</div>
                                 <div>
                                     {contractorName}
