@@ -1,6 +1,7 @@
-import React, {useEffect, useState} from 'react';
+import React, {useEffect, useRef, useState} from 'react';
 import {Button, Col, Container, FormGroup, Input, Label, Row} from 'reactstrap';
 import Logo from '../components/logo/Logo';
+import SignaturePad from 'react-signature-pad-wrapper'
 
 const contractorName = 'CODENOUGH LLC';
 const contractorOfficerName = 'David Lounsbrough';
@@ -27,32 +28,42 @@ const getNumberWithSuffix = (i) => {
 const getFormalDate = (date) =>
     `${getNumberWithSuffix(date.getDate())} day of ${date.toLocaleString('default', {month: 'long'})}, ${date.getFullYear()}`
 
+const getSvgImageData = (signaturePad) => signaturePad.toDataURL('image/svg+xml');
+
 function CreateContractPage() {
     const [clientName, setClientName] = useState('');
     const [clientAddress, setClientAddress] = useState('');
+    const [signatureSvg, setSignatureSvg] = useState(null);
+    const signaturePadRef = useRef();
 
-    useEffect(() => {
-        document.title = documentTitle;
-    }, []);
-
-    const printButtonEnabled = clientName && clientAddress;
+    const printButtonEnabled = clientName && clientAddress && signaturePadRef.current && !signaturePadRef.current.isEmpty();
 
     const currentDate = new Date();
 
+    useEffect(() => {
+        if (!signaturePadRef.current) {
+            return;
+        }
+
+        signaturePadRef.current.signaturePad.addEventListener('endStroke', () => {
+            setSignatureSvg(getSvgImageData(signaturePadRef.current));
+        });
+    }, [signaturePadRef]);
+
     return (
         <>
-            <div className="no-print" style={{paddingTop: '25px', paddingLeft: '20%', paddingRight: '20%'}}>
+            <div className="no-print contract-form-section">
                 <h5>
                     If you would like to contract {contractorName} to work for you:
                 </h5>
                 <ol>
                     <li>Fill out the form below</li>
-                    <li>Print and sign the form
+                    <li>Click "Print Contract"
                         <ul>
-                            <li>Print as PDF and sign digitally, or print on paper and scan</li>
+                            <li>Save contract as PDF</li>
                         </ul>
                     </li>
-                    <li>Return signed form to <a target="_blank " href={`mailto: ${contractorEmail}`} rel="noreferrer">{contractorEmail}</a></li>
+                    <li>Email contract to <a target="_blank " href={`mailto: ${contractorEmail}`} rel="noreferrer">{contractorEmail}</a></li>
                 </ol>
                 <FormGroup>
                     <Label for="clientName">Client Name</Label>
@@ -61,14 +72,39 @@ function CreateContractPage() {
                     <Label for="clientAddress">Client Address</Label>
                     <Input required name="clientAddress" value={clientAddress} onChange={(event) => setClientAddress(event.target.value)} />
                     <br />
-                    <Button
-                        color='primary'
-                        onClick={() => window.print()}
-                        disabled={!printButtonEnabled}
-                    >
-                        Print Contract
-                    </Button>
-                    {!printButtonEnabled && <span style={{marginLeft: '20px', fontStyle: 'italic'}}>please fill out all fields before printing</span>}
+                    <Label for="clientSignature">Client Signature</Label><br />
+                    <div style={{border: '1px solid black'}}>
+                        <SignaturePad
+                            ref={signaturePadRef}
+                            height={200}
+                        />
+                    </div>
+                    <br />
+                    <Button outline onClick={() => {
+                        signaturePadRef.current?.clear();
+                        setSignatureSvg(getSvgImageData(signaturePadRef.current));
+                    }}>Clear</Button>
+                    <Button style={{marginLeft: '10px'}} outline onClick={() => {
+                        const data = signaturePadRef.current.toData();
+                        if (data) {
+                            data.pop();
+                            signaturePadRef.current.fromData(data);
+                        }
+                        setSignatureSvg(getSvgImageData(signaturePadRef.current));
+                    }}>Undo</Button>
+                    <br />
+                    <br />
+                    <br />
+                    <div style={{marginBottom: '100px'}}>
+                        <Button
+                            color='primary'
+                            onClick={() => window.print()}
+                            disabled={!printButtonEnabled}
+                        >
+                            Print Contract
+                        </Button>
+                        {!printButtonEnabled && <span style={{marginLeft: '20px', fontStyle: 'italic'}}>required fields are blank</span>}
+                    </div>
                 </FormGroup>
             </div>
             <div className="only-print">
@@ -367,10 +403,11 @@ function CreateContractPage() {
                         </p>
                         <div>
                             <div style={{margin: '50px auto'}}>
+                                <img alt="signature" src={signatureSvg} width="250px" />
                                 <div>_______________________________</div>
                                 <div>{clientName}</div>
                             </div>
-                            <div style={{margin: '50px auto'}}>
+                            <div style={{margin: '100px auto'}}>
                                 <div>_______________________________</div>
                                 <div>
                                     {contractorName}
