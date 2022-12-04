@@ -24,7 +24,7 @@ const InternalHeader = () => {
             <Navbar expand="md" className="site-header no-print">
                 <NavbarBrand href="/">
                     <Logo format="fill" height={50} width={50} />
-                    <span className="site-header-company>CODENOUGH LLC</span>
+                    <span className="site-header-company">CODENOUGH LLC</span>
                 </NavbarBrand>
                 {user && (
                     <>
