@@ -14,3 +14,16 @@
     font-size: 5vw;
   }
 }
+
+.site-header-company {
+  margin-left: 20px;
+  vertical-align: middle;
+  font-size: 36px;
+  font-weight: bold;
+}
+
+@media screen and (max-width: 767px) {
+  .site-header-company {
+    font-size: 20px;
+  }
+}
