@@ -42,8 +42,8 @@ function CreateContractPage() {
     return (
         <>
             <div className="no-print" style={{paddingTop: '25px', paddingLeft: '20%', paddingRight: '20%'}}>
-                <h5 className='contract-section-heading'>
-                    Here's what you need to do to start a contract:
+                <h5>
+                    If you would like to contract {contractorName} to work for you:
                 </h5>
                 <ol>
                     <li>Fill out the form below</li>
