@@ -6,7 +6,7 @@ import SignaturePad from 'react-signature-pad-wrapper'
 const contractorName = 'CODENOUGH LLC';
 const contractorOfficerName = 'David Lounsbrough';
 const contractorEmail = 'contracts@codenough.com';
-const contractorAddress = '3006 NE 17th St, Ankeny, IA 50021, USA';
+const contractorPhysicalAddress = '3006 NE 17th St, Ankeny, IA 50021, USA';
 
 const documentTitle = `${contractorName} Contract Agreement`;
 
@@ -32,11 +32,11 @@ const getSvgImageData = (signaturePad) => signaturePad.toDataURL('image/svg+xml'
 
 function CreateContractPage() {
     const [clientName, setClientName] = useState('');
-    const [clientAddress, setClientAddress] = useState('');
+    const [clientPhysicalAddress, setClientPhysicalAddress] = useState('');
     const [signatureSvg, setSignatureSvg] = useState(null);
     const signaturePadRef = useRef();
 
-    const printButtonEnabled = clientName && clientAddress && signaturePadRef.current && !signaturePadRef.current.isEmpty();
+    const printButtonEnabled = clientName && clientPhysicalAddress && signaturePadRef.current && !signaturePadRef.current.isEmpty();
 
     const currentDate = new Date();
 
@@ -69,14 +69,14 @@ function CreateContractPage() {
                     <Label for="clientName">Client Name</Label>
                     <Input required name="clientName" value={clientName} onChange={(event) => setClientName(event.target.value)} />
                     <br />
-                    <Label for="clientAddress">Client Address</Label>
-                    <Input required name="clientAddress" value={clientAddress} onChange={(event) => setClientAddress(event.target.value)} />
+                    <Label for="clientPhysicalAddress">Client Physical Address</Label>
+                    <Input required name="clientPhysicalAddress" value={clientPhysicalAddress} onChange={(event) => setClientPhysicalAddress(event.target.value)} />
                     <br />
                     <Label for="clientSignature">Client Signature</Label><br />
                     <div style={{border: '1px solid black'}}>
                         <SignaturePad
                             ref={signaturePadRef}
-                            height={200}
+                            height={130}
                         />
                     </div>
                     <br />
@@ -124,7 +124,7 @@ function CreateContractPage() {
                                 <div>
                                     <span>{clientName}</span>
                                     <br />
-                                    <span>{clientAddress}</span>
+                                    <span>{clientPhysicalAddress}</span>
                                 </div><span>(the "Client")</span>
                             </Col>
                             <Col xs={6} className="bg-light border">
@@ -134,7 +134,7 @@ function CreateContractPage() {
                                 <div>
                                     <span>{contractorName}</span>
                                     <br />
-                                    <span>{contractorAddress}</span>
+                                    <span>{contractorPhysicalAddress}</span>
                                 </div><span>(the "Contractor")</span>
                             </Col>
                         </Row>
