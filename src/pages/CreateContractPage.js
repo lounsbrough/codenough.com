@@ -11,7 +11,7 @@ const contractorPhysicalAddress = '3006 NE 17th St, Ankeny, IA 50021, USA';
 const documentTitle = `${contractorName} Contract Agreement`;
 
 const getNumberWithSuffix = (i) => {
-    var j = i % 10,
+    const j = i % 10,
         k = i % 100;
     if (j === 1 && k !== 11) {
         return i + "st";
