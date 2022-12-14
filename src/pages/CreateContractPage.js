@@ -7,6 +7,7 @@ const contractorName = 'CODENOUGH LLC';
 const contractorOfficerName = 'David Lounsbrough';
 const contractorEmail = 'contracts@codenough.com';
 const contractorPhysicalAddress = '3006 NE 17th St, Ankeny, IA 50021, USA';
+const billableHourlyRate = 100;
 
 const documentTitle = `${contractorName} Contract Agreement`;
 
@@ -63,7 +64,7 @@ function CreateContractPage() {
                             <li>Save contract as PDF</li>
                         </ul>
                     </li>
-                    <li>Email contract to <a target="_blank " href={`mailto: ${contractorEmail}`} rel="noreferrer">{contractorEmail}</a></li>
+                    <li>Email contract or questions to <a target="_blank " href={`mailto: ${contractorEmail}`} rel="noreferrer">{contractorEmail}</a></li>
                 </ol>
                 <FormGroup>
                     <Label for="clientName">Client Name</Label>
@@ -71,6 +72,9 @@ function CreateContractPage() {
                     <br />
                     <Label for="clientPhysicalAddress">Client Physical Address</Label>
                     <Input required name="clientPhysicalAddress" value={clientPhysicalAddress} onChange={(event) => setClientPhysicalAddress(event.target.value)} />
+                    <br />
+                    <span>Hourly Rate: <strong>${billableHourlyRate} per hour</strong></span>
+                    <br />
                     <br />
                     <Label for="clientSignature">Client Signature</Label><br />
                     <div style={{border: '1px solid black'}}>
@@ -202,7 +206,7 @@ function CreateContractPage() {
                             <h5 className='contract-section-heading'><span>COMPENSATION</span><br />
                             </h5>
                             <li><span>The</span> Contractor will charge the Client for the Services at the rate
-                                of $100.00 per hour (the "Compensation").<br />
+                                of ${billableHourlyRate} per hour (the "Compensation").<br />
                             </li>
                             <li><span>The Client will be invoiced every month.</span><br />
                             </li>
