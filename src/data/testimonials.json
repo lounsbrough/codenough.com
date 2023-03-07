@@ -3,12 +3,21 @@
         "clientName": "Chris W.",
         "city": "Des Moines",
         "state": "IA",
-        "endorsement": "David is easy to communicate with and always promptly delivers an excellent product. I feel confident inviting him to work on any of our software projects."
+        "endorsement": "David is easy to communicate with and always promptly delivers an excellent product. I feel confident inviting him to work on any of our software projects.",
+        "fontSize": "4vmax"
     },
     {
         "clientName": "Shon L.",
         "city": "Ankeny",
         "state": "IA",
-        "endorsement": "The website is clean, professional, and exceeded our expectations. David did a fantastic job understanding and conveying our purpose."
+        "endorsement": "The website is clean, professional, and exceeded our expectations. David did a fantastic job understanding and conveying our purpose.",
+        "fontSize": "4vmax"
+    },
+    {
+        "clientName": "Mark C.",
+        "city": "Saylorville",
+        "state": "IA",
+        "endorsement": "I recently had the pleasure of working with Codenough for close to 2 years and I can confidently say that they exceeded all my expectations. From the very beginning, I knew they were 100% committed to my company's success. One of the things that stood out to me the most was their level of responsiveness. Whenever I had a question or concern, they were always there to help me. Whether it was a small issue or a major problem, they were always quick to respond and worked tirelessly until it was resolved. Above and beyond everything else, I appreciated their ability to deploy quality code in a timely manner. They were able to deliver solutions that were not only high-quality, but also completed within the budget and timeline we had set. This was incredibly important to me as I had tight deadlines to meet and needed a reliable partner who could deliver on their promises. Overall, my experience with David from Codenough was nothing short of exceptional. They were professional, efficient, and always went above and beyond to ensure that I was completely satisfied with their work. I would highly recommend them to anyone in need of quality software development services.",
+        "fontSize": "1.8vmax"
     }
 ]
