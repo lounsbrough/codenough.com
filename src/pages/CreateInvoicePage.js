@@ -163,7 +163,7 @@ class CreateInvoicePage extends React.Component {
     }
 
     filterToSelectedClient(timeEntries) {
-        return timeEntries.filter((entry) => entry.project.clientId === this.state.clockify.clientId);
+        return timeEntries.filter((entry) => entry.project?.clientId === this.state.clockify.clientId);
     }
 
     filterToBillableAndNotBilled(timeEntries) {
