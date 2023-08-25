@@ -7831,10 +7831,10 @@ react-side-effect@^2.1.0:
   resolved "https://registry.yarnpkg.com/react-side-effect/-/react-side-effect-2.1.2.tgz#dc6345b9e8f9906dc2eeb68700b615e0b4fe752a"
   integrity sha512-PVjOcvVOyIILrYoyGEpDN3vmYNLdy1CajSFNt4TDsVQC5KpTijDvWVoR+/7Rz2xT978D8/ZtFceXxzsPwZEDvw==
 
-react-signature-pad-wrapper@^3.3.2:
-  version "3.3.2"
-  resolved "https://registry.yarnpkg.com/react-signature-pad-wrapper/-/react-signature-pad-wrapper-3.3.2.tgz#c0dc38ab1f39218427a4238fff26b01e39f6a793"
-  integrity sha512-JA7hHZCcTIw72cFrjW+f0jqUHxJ7XiIiwUa4rTwj5pynIRm/7yZzBzW/WlYgjM8Mvqy11X2msx6DvbchRB0KGg==
+react-signature-pad-wrapper@^3.3.3:
+  version "3.3.3"
+  resolved "https://registry.yarnpkg.com/react-signature-pad-wrapper/-/react-signature-pad-wrapper-3.3.3.tgz#0bfb5893d6507c8d5954a5b34a28bc85a21c828e"
+  integrity sha512-k+r0FJBBLTPiUeOIXiJavJp4pZtL2iXG2iIW2i1go0K8qvdJ0gvcPvGqYIKnsB6IAsxUJUtBN5yAxt4UhkWSJA==
   dependencies:
     signature_pad "^4.0.0"
 
