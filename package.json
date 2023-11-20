@@ -16,7 +16,7 @@
     "react-helmet": "^6.1.0",
     "react-router-dom": "^6.19.0",
     "react-scripts": "^5.0.1",
-    "react-signature-pad-wrapper": "^3.3.3",
+    "react-signature-pad-wrapper": "^3.3.4",
     "react-unity-webgl": "^9.4.3",
     "reactstrap": "^9.2.1",
     "sass": "^1.69.5",
