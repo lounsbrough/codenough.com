@@ -1,6 +1,5 @@
 .home-page-section-wrapper {
     min-height: 100vh;
-
     padding: 5vh 0 5vh 0;
 }
 
@@ -26,4 +25,15 @@
     position: absolute;
     bottom: 25px;
     right: 25px;
+}
+
+.games-popover {
+    .popover {
+        background: transparent;
+        border: none;
+    }
+
+    .popover-arrow {
+        display: none;
+    }
 }

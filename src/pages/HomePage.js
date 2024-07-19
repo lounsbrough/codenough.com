@@ -1,15 +1,17 @@
 import React from 'react';
 import Matercolor from 'matercolors';
-import {Button} from 'reactstrap';
-import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {isMobile} from 'react-device-detect';
+import { Button, PopoverBody, UncontrolledPopover } from 'reactstrap';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { isMobile } from 'react-device-detect';
 
 import Logo from '../components/logo/Logo';
 import Letters from '../components/logo/Letters';
 import Proficiencies from '../components/Proficiencies';
 import Testimonials from '../components/Testimonials';
 import StrangerThingsAdidasLogo from '../components/stranger-things/StrangerThingsAdidasLogo';
-import {HSLToHex} from '../utils/color-functions';
+import { HSLToHex } from '../utils/color-functions';
+import DiceSvg from '../components/DiceSvg';
+import DotChaserLogo from '../components/dot-chaser/DotChaserLogo';
 
 class HomePage extends React.Component {
     constructor(props, context) {
@@ -36,7 +38,7 @@ class HomePage extends React.Component {
     }
 
     setDefaultColors() {
-        document.querySelectorAll('.app-header svg path').forEach(svgPath => {
+        document.querySelectorAll('.app-header-svg *').forEach(svgPath => {
             svgPath.style.fill = "white"
         });
 
@@ -65,7 +67,7 @@ class HomePage extends React.Component {
         } else {
             const colorScheme = this.getRandomColorScheme();
 
-            const svgPaths = document.querySelectorAll('.app-header svg path');
+            const svgPaths = document.querySelectorAll('.app-header-svg *');
 
             svgPaths.forEach((svgPath, index) => {
                 svgPath.style.fill = `${colorScheme[index % colorScheme.length]}`;
@@ -134,7 +136,7 @@ class HomePage extends React.Component {
         }
         lastKeysDown.push(newKey);
 
-        this.setState({lastKeysDown});
+        this.setState({ lastKeysDown });
     }
 
     checkKeySequence(code) {
@@ -154,29 +156,53 @@ class HomePage extends React.Component {
                 <header className="app-header">
                     <Button
                         color="primary"
-                        className="btn-circle btn-float-top-left"
+                        className="btn-circle btn-float-top-left app-header-svg"
                         onClick={() => this.toggleColorShow()}
                     >
                         <Logo className="logo" format="fillWhite" height="30" width="30" />
                     </Button>
-                    {!isMobile && <Button
-                        color="primary"
-                        className="btn-circle btn-float-top-right"
-                        onClick={() => window.open("/skydiving")}
-                    >
-                        <FontAwesomeIcon icon="cloud" />
-                    </Button>}
                     <Button
+                        id="GamesPopover"
                         color="primary"
-                        className="btn-circle btn-float-bottom-left"
-                        onClick={() => window.open("/stranger-things")}
+                        className="btn-circle btn-float-top-right app-header-svg"
                     >
-                        <StrangerThingsAdidasLogo height="50" width="50" />
+                        <DiceSvg height="50" width="50" />
                     </Button>
+                    <UncontrolledPopover
+                        className="games-popover app-header-svg"
+                        placement="bottom"
+                        target="GamesPopover"
+                    >
+                        <PopoverBody>
+                            {!isMobile && <Button
+                                color="primary"
+                                className="btn-circle app-header-svg"
+                                style={{ marginRight: '16px' }}
+                                onClick={() => window.open("/skydiving")}
+                            >
+                                <FontAwesomeIcon icon="cloud" />
+                            </Button>}
+                            <Button
+                                color="primary"
+                                className="btn-circle app-header-svg"
+                                style={{ marginRight: '16px' }}
+                                onClick={() => window.open("/stranger-things")}
+                            >
+                                <StrangerThingsAdidasLogo height="50" width="50" />
+                            </Button>
+                            <Button
+                                color="primary"
+                                className="btn-circle app-header-svg"
+                                onClick={() => window.open("/dot-chaser")}
+                            >
+                                <DotChaserLogo height="50" width="50" />
+                            </Button>
+                        </PopoverBody>
+                    </UncontrolledPopover>
                     <Button
                         color="primary"
                         className="btn-circle btn-float-bottom-right"
-                        onClick={() => document.querySelector('.proficiencies-wrapper').scrollIntoView({behavior: 'smooth'})}
+                        onClick={() => document.querySelector('.proficiencies-wrapper').scrollIntoView({ behavior: 'smooth' })}
                     >
                         <FontAwesomeIcon icon="arrow-down" />
                     </Button>
