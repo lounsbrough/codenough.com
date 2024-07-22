@@ -14,10 +14,6 @@ const joinRoomSocketEvent = 'join-room';
 const nextMoveSocketEvent = 'next-move';
 const gameStateChangeSocketEvent = 'game-state-change';
 
-const gameBoardPositions = [
-  [1, 1], [1, 2], [1, 3], [2, 1], [2, 2], [2, 3], [3, 1], [3, 2], [3, 3]
-];
-
 const DotChaser = () => {
   const socket = React.useContext(DotChaserSocketContext);
 
@@ -35,7 +31,7 @@ const DotChaser = () => {
     sessionStorage.setItem('dot-chaser-private-id', playerId);
   }
 
-  const handleGameStateChange = (gameState) => {
+  const handleGameStateChange = React.useCallback((gameState) => {
     setGameState(gameState);
 
     if (gameState.playerNames[gameRoles.chaser] === playerName) {
@@ -43,7 +39,7 @@ const DotChaser = () => {
     } else if (gameState.playerNames[gameRoles.chasee] === playerName) {
       setPlayerRole(gameRoles.chasee);
     }
-  };
+  }, [playerName]);
 
   React.useEffect(() => {
     socket.on('connect', () => {
@@ -57,8 +53,6 @@ const DotChaser = () => {
         }, handleGameStateChange);
       }
     });
-
-    socket.on(gameStateChangeSocketEvent, handleGameStateChange);
 
     socket.on(geolocationFoundEvent, (geolocation) => {
       navigator.geolocation.getCurrentPosition(
@@ -94,9 +88,18 @@ const DotChaser = () => {
     });
 
     return () => {
+      socket.off(geolocationFoundEvent);
+      socket.off(geolocationJoinEvent);
+    }
+  }, [socket, handleGameStateChange, playerId, playerName, roomId, searchParams]);
+
+  React.useEffect(() => {
+    socket.on(gameStateChangeSocketEvent, handleGameStateChange);
+
+    return () => {
       socket.off(gameStateChangeSocketEvent);
     };
-  }, [socket]);
+  }, [socket, handleGameStateChange]);
 
   if (!roomId) {
     return (
