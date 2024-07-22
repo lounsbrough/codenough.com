@@ -21,7 +21,10 @@ const DotChaser = () => {
   const [playerNameInvalid, setPlayerNameInvalid] = React.useState(false);
   const [gameState, setGameState] = React.useState();
 
-  const searchParams = new URLSearchParams(window.location.search);
+  const searchParams = React.useMemo(
+    () => new URLSearchParams(window.location.search),
+    []
+  );
   const roomId = searchParams.get('roomId');
   const playerName = searchParams.get('player');
 
