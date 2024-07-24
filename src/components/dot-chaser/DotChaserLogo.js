@@ -9,7 +9,8 @@ const DotChaserLogo = (props) =>
         {...props}
     >
         <g fillRule="evenodd">
-            <circle cx={200} cy={200} r={200} />
+            <circle cx={120} cy={120} r={75} />
+            <circle cx={280} cy={280} r={75} />
         </g>
     </svg>;
 
