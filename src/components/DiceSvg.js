@@ -5,7 +5,7 @@ const DiceSvg = (props) => (
     xmlns="http://www.w3.org/2000/svg"
     width={122.663}
     height={128}
-    viewBox="0 0 47.538 124.724"
+    viewBox="0 -15 47.538 150"
     {...props}
   >
     <path
