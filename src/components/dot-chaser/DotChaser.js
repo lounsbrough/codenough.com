@@ -1,7 +1,7 @@
 import React from 'react';
 import ShortUniqueId from 'short-unique-id';
 import DotChaserSocketContext from '../../contexts/DotChaserSocketContext';
-import { Button, Form, FormFeedback, Input, Label, Row } from 'reactstrap';
+import { Button, Form, FormFeedback, Input, Label, Modal, ModalBody, ModalFooter, ModalHeader, Row } from 'reactstrap';
 import { areClose } from '../../utils/geolocation-helpers';
 
 const roomUniqueId = new ShortUniqueId({ length: 6, dictionary: 'alphanum_upper' });
@@ -14,9 +14,22 @@ const joinRoomSocketEvent = 'join-room';
 const nextMoveSocketEvent = 'next-move';
 const gameStateChangeSocketEvent = 'game-state-change';
 
+const gameBoardPositions = new Map([
+  ['[1,1]', { top: 0, left: 0 }],
+  ['[1,2]', { top: 0, left: '50%', transform: 'translateX(-50%)' }],
+  ['[1,3]', { top: 0, left: '100%', transform: 'translateX(-100%)' }],
+  ['[2,1]', { top: '40%', left: 0 }],
+  ['[2,2]', { top: '40%', left: '50%', transform: 'translateX(-50%)' }],
+  ['[2,3]', { top: '40%', left: '100%', transform: 'translateX(-100%)' }],
+  ['[3,1]', { top: '80%', left: 0 }],
+  ['[3,2]', { top: '80%', left: '50%', transform: 'translateX(-50%)' }],
+  ['[3,3]', { top: '80%', left: '100%', transform: 'translateX(-100%)' }]
+]);
+
 const DotChaser = () => {
   const socket = React.useContext(DotChaserSocketContext);
 
+  const [gameOverModalOpen, setGameOverModalOpen] = React.useState(false);
   const [playerRole, setPlayerRole] = React.useState();
   const [playerNameInvalid, setPlayerNameInvalid] = React.useState(false);
   const [gameState, setGameState] = React.useState();
@@ -104,6 +117,19 @@ const DotChaser = () => {
     };
   }, [socket, handleGameStateChange]);
 
+  React.useEffect(() => {
+    if (gameOverModalOpen || !gameState) {
+      return;
+    }
+
+    const chaserCoords = gameState.currentPositions[gameRoles.chaser];
+    const chaseeCoords = gameState.currentPositions[gameRoles.chasee];
+
+    if (JSON.stringify(chaserCoords) === JSON.stringify(chaseeCoords)) {
+      setTimeout(() => { setGameOverModalOpen(true) }, 1000);
+    }
+  }, [gameState, gameOverModalOpen]);
+
   if (!roomId) {
     return (
       <div>
@@ -154,84 +180,114 @@ const DotChaser = () => {
     </div>
   }
 
-  const getBoardGameDot = (coords) => {
-    let indicator = '🔘';
+  const getBoardGameSpaceDot = (coords) => {
+    const indicator = '🔘';
     let isPossibleNextMove = false;
     if (gameState) {
+      const otherPlayerCoords = gameState.currentPositions[
+        playerRole === gameRoles.chaser ? gameRoles.chasee : gameRoles.chaser
+      ];
       const playerCoords = gameState.currentPositions[playerRole];
       if ((coords[0] !== playerCoords[0] || coords[1] !== playerCoords[1]) &&
         Math.abs(coords[0] - playerCoords[0]) <= 1 &&
-        Math.abs(coords[1] - playerCoords[1]) <= 1
+        Math.abs(coords[1] - playerCoords[1]) <= 1 &&
+        !(coords[0] === otherPlayerCoords[0] && coords[1] === otherPlayerCoords[1])
       ) {
         isPossibleNextMove = true;
-      }
-
-      const chaserCoords = gameState.currentPositions[gameRoles.chaser];
-      const chaseeCoords = gameState.currentPositions[gameRoles.chasee];
-
-      if (chaserCoords[0] === coords[0] && chaserCoords[1] === coords[1]) {
-        if (chaseeCoords[0] === coords[0] && chaseeCoords[1] === coords[1]) {
-          indicator = '💥';
-        } else {
-          indicator = '🔴';
-        }
-      }
-
-      if (chaseeCoords[0] === coords[0] && chaseeCoords[1] === coords[1]) {
-        if (chaserCoords[0] === coords[0] && chaserCoords[1] === coords[1]) {
-          indicator = '💥';
-        } else {
-          indicator = '🔵';
-        }
       }
     }
 
     return <span
       style={{
-        display: 'flex',
-        alignItems: 'center',
-        opacity: indicator === '🔘' && !isPossibleNextMove ? 0.5 : 1,
+        opacity: isPossibleNextMove ? 1 : 0.5,
         cursor: isPossibleNextMove ? 'pointer' : 'default'
       }}
       onClick={() => {
-        isPossibleNextMove && socket.emit(nextMoveSocketEvent, { roomId, playerId, nextMove: coords }, handleGameStateChange);
+        isPossibleNextMove && socket.emit(nextMoveSocketEvent, { roomId, playerId, nextMove: coords });
       }}
     >
       {indicator}
     </span>
   }
 
+  const getBoardGamePlayerDots = () => {
+    if (gameState) {
+      const chaserCoords = gameState.currentPositions[gameRoles.chaser];
+      const chaseeCoords = gameState.currentPositions[gameRoles.chasee];
+
+      return <>
+        <span style={{ transition: 'top 1s, left 1s', position: 'absolute', ...gameBoardPositions.get(JSON.stringify(chaserCoords)) }}>{'🔴'}</span>
+        <span style={{ transition: 'top 1s, left 1s', position: 'absolute', ...gameBoardPositions.get(JSON.stringify(chaseeCoords)) }}>{'🔵'}</span>
+      </>;
+    }
+
+    return null;
+  }
+
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      width: '100vw',
-      height: '100vh',
-      justifyContent: 'center'
-    }}>
-      <div style={{ textAlign: 'center' }}>
-        <div>{`You are in room ${roomId}`}</div>
-        <div>{`You are ${playerName}, the ${playerRole}`}</div>
+    <>
+      <div style={{
+        display: 'flex',
+        flexDirection: 'column',
+        width: '100vw',
+        height: '100vh',
+        justifyContent: 'center',
+        alignItems: 'center'
+      }}>
+        <div style={{ textAlign: 'center' }}>
+          <div>{`You are in room ${roomId}`}</div>
+          <div>{`You are ${playerName}, the ${playerRole}`}</div>
+        </div>
+
+        <div style={{
+          position: 'relative',
+          height: 'min(90vh, 90vw)',
+          width: 'min(90vh, 90vw)',
+          fontSize: '6rem'
+        }}>
+          <span style={{ position: 'absolute', ...gameBoardPositions.get('[1,1]') }}>
+            {getBoardGameSpaceDot([1, 1])}
+          </span>
+          <span style={{ position: 'absolute', ...gameBoardPositions.get('[1,2]') }}>
+            {getBoardGameSpaceDot([1, 2])}
+          </span>
+          <span style={{ position: 'absolute', ...gameBoardPositions.get('[1,3]') }}>
+            {getBoardGameSpaceDot([1, 3])}
+          </span>
+          <span style={{ position: 'absolute', ...gameBoardPositions.get('[2,1]') }}>
+            {getBoardGameSpaceDot([2, 1])}
+          </span>
+          <span style={{ position: 'absolute', ...gameBoardPositions.get('[2,2]') }}>
+            {getBoardGameSpaceDot([2, 2])}
+          </span>
+          <span style={{ position: 'absolute', ...gameBoardPositions.get('[2,3]') }}>
+            {getBoardGameSpaceDot([2, 3])}
+          </span>
+          <span style={{ position: 'absolute', ...gameBoardPositions.get('[3,1]') }}>
+            {getBoardGameSpaceDot([3, 1])}
+          </span>
+          <span style={{ position: 'absolute', ...gameBoardPositions.get('[3,2]') }}>
+            {getBoardGameSpaceDot([3, 2])}
+          </span>
+          <span style={{ position: 'absolute', ...gameBoardPositions.get('[3,3]') }}>
+            {getBoardGameSpaceDot([3, 3])}
+          </span>
+          {getBoardGamePlayerDots()}
+        </div>
       </div>
 
-      <div style={{ width: 'min(90vh, 90vw)', margin: '0 auto', fontSize: '6rem' }}>
-        <div style={{ display: 'flex', justifyContent: 'space-around', height: 'min(30vh, 30vw)' }}>
-          {getBoardGameDot([1, 1])}
-          {getBoardGameDot([1, 2])}
-          {getBoardGameDot([1, 3])}
-        </div >
-        <div style={{ display: 'flex', justifyContent: 'space-around', height: 'min(30vh, 30vw)' }}>
-          {getBoardGameDot([2, 1])}
-          {getBoardGameDot([2, 2])}
-          {getBoardGameDot([2, 3])}
-        </div>
-        <div style={{ display: 'flex', justifyContent: 'space-around', height: 'min(30vh, 30vw)' }}>
-          {getBoardGameDot([3, 1])}
-          {getBoardGameDot([3, 2])}
-          {getBoardGameDot([3, 3])}
-        </div>
-      </div>
-    </div>
+      <Modal isOpen={gameOverModalOpen} toggle={() => setGameOverModalOpen(false)}>
+        <ModalHeader toggle={() => setGameOverModalOpen(false)}>Game Over</ModalHeader>
+        <ModalBody>
+          The game is now over.
+        </ModalBody>
+        <ModalFooter>
+          <Button color="primary" onClick={() => setGameOverModalOpen(false)}>
+            Play Again
+          </Button>
+        </ModalFooter>
+      </Modal>
+    </>
   );
 };
 
